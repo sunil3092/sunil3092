@@ -1,14 +1,124 @@
 <!DOCTYPE html>
 <html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Sunil Gauda - Software Engineer</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <script>
+      // Tailwind config for dark mode
+      tailwind.config = {
+        darkMode: "class", // Enables dark mode based on class
+      };
+    </script>
+    <style>
+      /* Slider toggle styling */
+      .toggle-slider {
+        position: absolute;
+        top: 20px;
+        right: 20px;
+        display: flex;
+        align-items: center;
+        gap: 0.5rem;
+      }
+      .switch {
+        position: relative;
+        display: inline-block;
+        width: 50px;
+        height: 24px;
+      }
+      .switch input {
+        opacity: 0;
+        width: 0;
+        height: 0;
+      }
+      .slider {
+        position: absolute;
+        cursor: pointer;
+        top: 0;
+        left: 0;
+        right: 0;
+        bottom: 0;
+        background-color: #ccc;
+        transition: 0.4s;
+        border-radius: 24px;
+      }
+      .slider:before {
+        position: absolute;
+        content: "";
+        height: 20px;
+        width: 20px;
+        left: 2px;
+        bottom: 2px;
+        background-color: white;
+        transition: 0.4s;
+        border-radius: 50%;
+      }
+      input:checked + .slider {
+        background-color: #4ade80;
+      }
+      input:checked + .slider:before {
+        transform: translateX(26px);
+      }
+    </style>
+  </head>
+  <!-- Add transition and theme colors on the body -->
+  <body>
+    <!-- Theme Toggle Slider -->
+    <div class="bg-gray-200 dark:bg-gray-900 p-10">
+      <div class="toggle-slider">
+        <span>🌞</span>
+        <label class="switch">
+          <input type="checkbox" id="theme-toggle" onclick="toggleTheme()" />
+          <span class="slider"></span>
+        </label>
+        <span>🌙</span>
+      </div>
 
-<head>
-  <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>&#128187; &#128743; &#128187;</title>
-</head>
+      <!-- Main Content, ensuring min-h-screen covers the entire viewport -->
+      <div class="flex items-center justify-center min-h-screen">
+        <div
+          class="w-[85%] max-w-screen-lg mx-auto rounded overflow-hidden shadow-lg bg-gray-400 dark:bg-gray-700 p-6 transition-colors duration-300 flex flex-col items-center"
+        >
+          <div class="font-bold text-xl mb-2">Sunil Gauda</div>
+          <img class="rounded-full m-4" src="./profile.jpg" alt="Sunil Gauda" />
+          <div class="text-center">
+            <div class="font-bold text-xl mb-2">Software Engineer</div>
+            <div
+              class="max-w-sm w-full rounded overflow-hidden bg-gray-200 dark:bg-gray-700 p-2 mb-2 text-center"
+            >
+              JavaScript
+            </div>
+            <div
+              class="max-w-sm w-full rounded overflow-hidden bg-gray-200 dark:bg-gray-700 p-2 mb-2 text-center"
+            >
+              C#
+            </div>
+            <div
+              class="max-w-sm w-full rounded overflow-hidden bg-gray-200 dark:bg-gray-700 p-2 mb-2 text-center"
+            >
+              SQL
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
 
-<body>
-  Hi this is sunil here!
-</body>
+    <script>
+      // Apply saved theme on page load
+      document.addEventListener("DOMContentLoaded", () => {
+        const savedTheme = localStorage.getItem("theme");
+        if (savedTheme === "dark") {
+          document.body.classList.add("dark");
+          document.getElementById("theme-toggle").checked = true;
+        }
+      });
 
+      // Toggle dark mode on checkbox change
+      function toggleTheme() {
+        const isDarkMode = document.body.classList.toggle("dark");
+        localStorage.setItem("theme", isDarkMode ? "dark" : "light");
+      }
+    </script>
+  </body>
 </html>
