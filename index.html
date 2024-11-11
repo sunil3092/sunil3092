@@ -3,245 +3,328 @@
   <head>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>Sunil Gauda Resume</title>
+    <title>Sunil Gauda - 3D Resume</title>
+    <!-- Tailwind CSS -->
     <link
       href="https://cdn.jsdelivr.net/npm/tailwindcss@2.2.19/dist/tailwind.min.css"
       rel="stylesheet"
     />
+    <!-- Three.js -->
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/three.js/r128/three.min.js"></script>
+    <style>
+      body {
+        background-color: #1a1a2e;
+        color: #ffffff;
+        overflow-y: auto;
+        padding-bottom: 2rem;
+      }
+      #background-animation {
+        position: fixed;
+        top: 0;
+        left: 0;
+        width: 100vw;
+        height: 100vh;
+        z-index: -1;
+      }
+    </style>
   </head>
-  <body class="bg-gray-100">
-    <div class="flex flex-col lg:flex-row">
-      <!-- Summary Section -->
+  <body class="flex flex-col items-center font-sans p-6">
+    <!-- Background Animation Canvas -->
+    <canvas id="background-animation"></canvas>
+
+    <!-- Header Section -->
+    <header class="w-full max-w-4xl text-center mb-10 z-10">
+      <h1 class="text-5xl font-bold text-indigo-300">Sunil Gauda</h1>
+      <p class="text-lg text-gray-400 mt-2">
+        Software Engineer | Full-Stack Developer
+      </p>
+      <p class="text-gray-500 mt-2">
+        Dublin, Ireland
+        <br />
+        <a href="mailto:sunilg3011992@gmail.com" class="text-indigo-300"
+          >sunilg3011992@gmail.com</a
+        >
+        ⋄
+        <a
+          href="https://www.linkedin.com/in/sunil3092"
+          target="_blank"
+          class="text-indigo-300"
+          >LinkedIn</a
+        >
+        ⋄
+        <a
+          href="https://github.com/sunil3092"
+          target="_blank"
+          class="text-indigo-300"
+          >GitHub</a
+        >
+      </p>
+    </header>
+
+    <!-- Summary Section -->
+    <section
+      class="w-full max-w-4xl bg-gray-800 p-6 rounded-lg shadow-lg mb-6 z-10"
+    >
+      <h2 class="text-2xl font-semibold text-indigo-200 mb-2">Summary</h2>
+      <p class="text-gray-300">
+        Results-driven Software Engineer with nearly 5 years of experience,
+        specializing in developing robust and scalable enterprise applications
+        using the .NET Framework. Proficient in both monolithic and
+        microservices architectures, with strong expertise in React, Angular,
+        and SQL. Skilled in micro frontend development with React and .NET, and
+        always open to embracing new technologies and frameworks. Actively
+        seeking full-time opportunities in Software Engineering, with a primary
+        focus on .NET while welcoming the chance to work with diverse tech
+        stacks.
+      </p>
+    </section>
+
+    <!-- Skills Section -->
+    <section
+      class="w-full max-w-4xl bg-gray-800 p-6 rounded-lg shadow-lg mb-6 z-10"
+    >
+      <h2 class="text-2xl font-semibold text-indigo-200 mb-4">Skills</h2>
+      <div class="flex flex-wrap gap-4">
+        <span class="bg-indigo-500 text-white px-4 py-2 rounded-full"
+          >Microservices</span
+        >
+        <span class="bg-indigo-500 text-white px-4 py-2 rounded-full"
+          >Micro frontends</span
+        >
+        <span class="bg-indigo-500 text-white px-4 py-2 rounded-full"
+          >Monoliths</span
+        >
+        <span class="bg-indigo-500 text-white px-4 py-2 rounded-full">C#</span>
+        <span class="bg-indigo-500 text-white px-4 py-2 rounded-full"
+          >JavaScript</span
+        >
+        <span class="bg-indigo-500 text-white px-4 py-2 rounded-full"
+          >TypeScript</span
+        >
+        <span class="bg-indigo-500 text-white px-4 py-2 rounded-full"
+          >.NET Framework</span
+        >
+        <span class="bg-indigo-500 text-white px-4 py-2 rounded-full"
+          >Entity Framework</span
+        >
+        <span class="bg-indigo-500 text-white px-4 py-2 rounded-full"
+          >Identity Framework</span
+        >
+        <span class="bg-indigo-500 text-white px-4 py-2 rounded-full"
+          >Node.js</span
+        >
+        <span class="bg-indigo-500 text-white px-4 py-2 rounded-full"
+          >NUnit</span
+        >
+        <span class="bg-indigo-500 text-white px-4 py-2 rounded-full"
+          >Cypress</span
+        >
+        <span class="bg-indigo-500 text-white px-4 py-2 rounded-full"
+          >React.js</span
+        >
+        <span class="bg-indigo-500 text-white px-4 py-2 rounded-full"
+          >Angular</span
+        >
+        <span class="bg-indigo-500 text-white px-4 py-2 rounded-full"
+          >MSSQL</span
+        >
+        <span class="bg-indigo-500 text-white px-4 py-2 rounded-full"
+          >Oracle</span
+        >
+        <span class="bg-indigo-500 text-white px-4 py-2 rounded-full"
+          >Azure DevOps</span
+        >
+        <span class="bg-indigo-500 text-white px-4 py-2 rounded-full">Git</span>
+        <span class="bg-indigo-500 text-white px-4 py-2 rounded-full"
+          >GitHub</span
+        >
+      </div>
+    </section>
+
+    <!-- Experience Section -->
+    <section
+      class="w-full max-w-4xl bg-gray-800 p-6 rounded-lg shadow-lg mb-6 z-10"
+    >
+      <h2 class="text-2xl font-semibold text-indigo-200 mb-4">Experience</h2>
+
+      <!-- Experience at Aryza -->
       <div
-        id="summary"
-        class="bg-gradient-to-b from-blue-400 to-blue-500 lg:w-1/4 min-h-screen p-6 shadow-lg"
+        class="p-4 bg-gray-900 rounded-md hover:bg-gray-700 transition duration-200 mb-4"
       >
-        <div class="mt-4 lg:ml-4 text-center">
-          <div class="h-16 overflow-y-auto">
-            <h1 class="text-2xl font-semibold text-white">Sunil Gauda</h1>
-          </div>
-          <p class="text-white">Software Engineer</p>
-        </div>
-        <div class="flex items-center justify-center mt-4">
-          <div class="relative">
-            <div
-              class="absolute inset-0 rounded-full border-4 border-blue-900 animate-pulse"
-            ></div>
-            <img
-              src="./profile.jpg"
-              alt="Profile Photo"
-              class="w-40 h-40 rounded-full"
-            />
-          </div>
-        </div>
+        <h3 class="text-xl text-white">
+          Software Engineer - Aryza Ireland Ltd
+        </h3>
+        <span class="text-sm text-gray-400"
+          >04/2023 – Present, Dublin, Ireland</span
+        >
+        <ul class="list-disc text-gray-300 ml-6 mt-2">
+          <li>
+            Developed scalable API service for the billing system, enhancing
+            client billing efficiency by 50%.
+          </li>
+          <li>
+            Redesigned front-end with Kendo UI Grid, enabling seamless Excel
+            export functionality.
+          </li>
+          <li>
+            Optimized database performance, improving report generation speed by
+            10%.
+          </li>
+          <li>
+            Implemented CI/CD pipelines via Azure DevOps, ensuring continuous
+            integration and updates.
+          </li>
+        </ul>
       </div>
 
-      <!-- Main Content Section -->
+      <!-- Experience at Learning Mate Solutions -->
       <div
-        class="lg:w-3/4 min-h-screen overflow-y-scroll scrollbar-thin scrollbar-thumb-blue-300 scrollbar-track-gray-100"
+        class="p-4 bg-gray-900 rounded-md hover:bg-gray-700 transition duration-200 mb-4"
       >
-        <div class="bg-green-100 p-6 shadow-lg rounded-lg mt-4 ml-4">
-          <div>
-            <h2 class="text-xl font-semibold">Summary</h2>
-            <p class="mt-4">
-              Software engineer with 3+ Years of experience in developing
-              enterprise applications using .Net Framework, React, Angular, and
-              SQL. Seeking Full-Time Software Engineer with .Net Framework or
-              Full-Stack roles.
-            </p>
-          </div>
-        </div>
-
-        <div class="bg-white p-6 shadow-lg rounded-lg mt-4 ml-4">
-          <div>
-            <h2 class="text-xl font-semibold">SKILLS</h2>
-            <ul class="mt-2 list-disc list-inside">
-              <li>Programming Languages C#, Javascript, Typescript.</li>
-              <li>
-                Back-End Frameworks .NET Framework, Entity Framework, Identity
-                Framework, NodeJS.
-              </li>
-              <li>
-                Front-End Frameworks Angular, Electron, React, HTML with CSS.
-              </li>
-              <li>Databases MSSQL, ORACLE</li>
-              <li>Other Git, Github, Azure, Jenkins.</li>
-            </ul>
-          </div>
-        </div>
-
-        <div class="bg-white p-6 shadow-lg rounded-lg mt-4 ml-4">
-          <h2 class="text-xl font-semibold">EXPERIENCE</h2>
-
-          <div class="flex mt-4">
-            <div class="w-1/3">
-              <p class="text-lg font-semibold">Software Engineer</p>
-              <p class="text-gray-600">4/2023 - Present</p>
-              <p class="text-blue-500">
-                Aryza , <br />
-                Ireland
-              </p>
-            </div>
-            <div class="w-2/3">
-              <p>Projects: Billing</p>
-              <ul class="list-disc list-inside">
-                <li>
-                  Developing application for company billing requirements using
-                  Dotnet as a backend and react front end with in an Azure cloud
-                  Environment.
-                </li>
-                <li>
-                  50% of workload is backend on dotnet core/ dotnet framework 3+
-                </li>
-                <li>30% of workload on Front-end Development with ReactJs.</li>
-                <li>10% of workload on Database with Entity Framework.</li>
-                <li>
-                  10% of workload on Deployment Azure and Microsoft Team
-                  Foundation
-                </li>
-              </ul>
-            </div>
-          </div>
-
-          <div class="flex mt-4">
-            <div class="w-1/3">
-              <p class="text-lg font-semibold">Software Engineer</p>
-              <p class="text-gray-600">5/2021 - 12/2021</p>
-              <p class="text-blue-500">
-                Learning Mate Solutions private limited Mumbai, <br />
-                India
-              </p>
-            </div>
-            <div class="w-2/3">
-              <p>Projects: Altura/Single App</p>
-              <ul class="list-disc list-inside">
-                <li>
-                  Contributing in an Agile Environment with a team of 10 on
-                  Altura Application.
-                </li>
-                <li>
-                  50% of workload on Back-end REST-API Development with .Net
-                  Framework.
-                </li>
-                <li>
-                  30% of workload on Front-end Development with Angular and
-                  Electron.
-                </li>
-                <li>10% of workload on Database with Entity Framework.</li>
-                <li>
-                  10% of workload on Deployment with Jenkins / Azure with Github
-                  CI/CD.
-                </li>
-              </ul>
-            </div>
-          </div>
-
-          <div class="flex mt-4">
-            <div class="w-1/3">
-              <p class="text-lg font-semibold">Jr Software Engineer</p>
-              <p class="text-gray-600">6/2020 - 4/2021</p>
-              <p class="text-blue-500">
-                Acideas Solutions pvt ltd, CRMNEXT Mumbai, <br />
-                India
-              </p>
-            </div>
-            <div class="w-2/3">
-              <p>Projects: CRMNEXT</p>
-              <ul class="list-disc list-inside">
-                <li>
-                  Agile Environment with a team of 5 to add features and
-                  maintain CRMNEXT.
-                </li>
-                <li>
-                  65% of Back-end REST-API Development workload with .Net
-                  Framework.
-                </li>
-                <li>
-                  15% of Front-end Development workload with Javascript and
-                  React.
-                </li>
-                <li>
-                  15% of workload on Database with Entity Framework and SQL.
-                </li>
-                <li>5% of workload on IIS Deployment Manual.</li>
-              </ul>
-            </div>
-          </div>
-
-          <div class="flex mt-4">
-            <div class="w-1/3">
-              <p class="text-lg font-semibold">Software Developer</p>
-              <p class="text-gray-600">3/2019 - 6/2020</p>
-              <p class="text-blue-500">
-                DIMA Engineering PVT LTD Mumbai, <br />
-                India
-              </p>
-            </div>
-            <div class="w-2/3">
-              <p>Projects: HYDRA, ELN</p>
-              <ul class="list-disc list-inside">
-                <li>
-                  Working in an Agile Environment with a team of 8 on projects
-                  HYDRA and ELN.
-                </li>
-                <li>
-                  30% work on Back-end REST-API Development with .Net Framework
-                  for Hydra.
-                </li>
-                <li>
-                  30% Front-end Development with Typescript and React for Hydra.
-                </li>
-                <li>
-                  10% Back-end MVC Development with .Net Framework for ELN.
-                </li>
-                <li>10% Front-end Development with Razor Syntax and C#.</li>
-                <li>15% Database with Entity Framework and SQL.</li>
-                <li>5% IIS Deployment Manual.</li>
-              </ul>
-            </div>
-          </div>
-        </div>
-
-        <div class="bg-white p-6 shadow-lg rounded-lg mt-4 ml-4">
-          <h2 class="text-xl font-semibold">OTHER WORK EXPERIENCE</h2>
-          <p class="mt-2">Electrical Engineer 11/2016 - 11/2017</p>
-          <p>IUS Equipment’s PVT LTD Mumbai, India</p>
-          <p>
-            Designing Electrical equipment’s for process management industry
-            like Chemical and Pharmaceutical.
-          </p>
-        </div>
-
-        <div class="bg-white p-6 shadow-lg rounded-lg mt-4 ml-4">
-          <h2 class="text-xl font-semibold">EDUCATION</h2>
-          <p class="mt-2">
-            Master in Artificial Intelligence, Dublin Business School 01/2023
-          </p>
-          <p>Grade: 79.96%</p>
-          <p>Post Graduate Diploma in Advance Computing, CDAC-Mumbai 2018</p>
-          <p>
-            Bachelor in Science - Electrical Engineering, Mumbai University 2016
-          </p>
-        </div>
-
-        <div class="bg-white p-6 shadow-lg rounded-lg mt-4 ml-4">
-          <h2 class="text-xl font-semibold">ACHIEVEMENTS</h2>
-          <ul class="mt-2 list-disc list-inside">
-            <li>
-              Got Promoted Early due to outstanding performance in developing
-              HYDRA application in DIMA Engineering.
-            </li>
-            <li>
-              Appreciated by NBFC clients due to delivery and logical approach
-              over Acideas Solutions CRMNext.
-            </li>
-            <li>
-              Recognized for multi-platform management for end-to-end
-              application development at Learning-Mate solutions.
-            </li>
-          </ul>
-        </div>
+        <h3 class="text-xl text-white">
+          Software Engineer - Learning Mate Solutions Pvt. Ltd
+        </h3>
+        <span class="text-sm text-gray-400"
+          >05/2021 – 12/2021, Mumbai, India</span
+        >
+        <ul class="list-disc text-gray-300 ml-6 mt-2">
+          <li>
+            Developed authentication systems and data management for K12 student
+            applications.
+          </li>
+          <li>
+            Enhanced front-end usability by 30% using Angular, JavaScript, and
+            Electron.
+          </li>
+          <li>
+            Automated deployment via GitHub Actions and Azure, improving
+            application availability by 20%.
+          </li>
+        </ul>
       </div>
-    </div>
+
+      <!-- Additional Experiences -->
+      <div
+        class="p-4 bg-gray-900 rounded-md hover:bg-gray-700 transition duration-200 mb-4"
+      >
+        <h3 class="text-xl text-white">
+          Jr. Software Engineer - Acideas Solutions Pvt. Ltd, CRMNEXT
+        </h3>
+        <span class="text-sm text-gray-400"
+          >06/2020 – 04/2021, Mumbai, India</span
+        >
+        <ul class="list-disc text-gray-300 ml-6 mt-2">
+          <li>
+            Developed .NET-based template engine for CRM requirements and
+            managed Oracle, MSSQL databases.
+          </li>
+          <li>Handled manual deployments on Windows platforms using IIS.</li>
+        </ul>
+      </div>
+
+      <div
+        class="p-4 bg-gray-900 rounded-md hover:bg-gray-700 transition duration-200"
+      >
+        <h3 class="text-xl text-white">
+          Software Developer - DIMA Engineering Pvt. Ltd
+        </h3>
+        <span class="text-sm text-gray-400"
+          >03/2019 – 06/2020, Mumbai, India</span
+        >
+        <ul class="list-disc text-gray-300 ml-6 mt-2">
+          <li>
+            Led form and state management development for HYDRA using React and
+            JavaScript.
+          </li>
+          <li>
+            Enhanced ELN maintenance using MVC architecture, Razor syntax, and
+            C#.
+          </li>
+          <li>Oversaw full-cycle delivery and deployment following UAT.</li>
+        </ul>
+      </div>
+    </section>
+
+    <!-- Education Section -->
+    <section
+      class="w-full max-w-4xl bg-gray-800 p-6 rounded-lg shadow-lg mb-6 z-10"
+    >
+      <h2 class="text-2xl font-semibold text-indigo-200 mb-4">Education</h2>
+      <div class="p-4 bg-gray-900 rounded-md mb-4">
+        <h3 class="text-lg text-white">
+          Master of Science in Artificial Intelligence
+        </h3>
+        <p class="text-gray-400">
+          Dublin Business School, 2023 - Grade: 79.96%
+        </p>
+      </div>
+      <div class="p-4 bg-gray-900 rounded-md mb-4">
+        <h3 class="text-lg text-white">
+          Post Graduate Diploma in Advanced Computing
+        </h3>
+        <p class="text-gray-400">CDAC-Mumbai, 2018</p>
+      </div>
+      <div class="p-4 bg-gray-900 rounded-md">
+        <h3 class="text-lg text-white">
+          Bachelor of Science in Electrical Engineering
+        </h3>
+        <p class="text-gray-400">Mumbai University, 2016</p>
+      </div>
+    </section>
+
+    <!-- Three.js Script for Background Animation -->
+    <script>
+      const canvas = document.getElementById("background-animation");
+      const scene = new THREE.Scene();
+      const camera = new THREE.PerspectiveCamera(
+        75,
+        window.innerWidth / window.innerHeight,
+        0.1,
+        1000
+      );
+      const renderer = new THREE.WebGLRenderer({ canvas: canvas, alpha: true });
+      renderer.setSize(window.innerWidth, window.innerHeight);
+
+      window.addEventListener("resize", () => {
+        renderer.setSize(window.innerWidth, window.innerHeight);
+        camera.aspect = window.innerWidth / window.innerHeight;
+        camera.updateProjectionMatrix();
+      });
+
+      const particles = new THREE.BufferGeometry();
+      const particleCount = 700;
+      const positions = [];
+
+      for (let i = 0; i < particleCount; i++) {
+        positions.push((Math.random() - 0.5) * 20);
+        positions.push((Math.random() - 0.5) * 20);
+        positions.push((Math.random() - 0.5) * 20);
+      }
+
+      particles.setAttribute(
+        "position",
+        new THREE.Float32BufferAttribute(positions, 3)
+      );
+
+      const particleMaterial = new THREE.PointsMaterial({
+        color: 0x44aa88,
+        size: 0.1,
+        transparent: true,
+        opacity: 0.7,
+      });
+
+      const particleSystem = new THREE.Points(particles, particleMaterial);
+      scene.add(particleSystem);
+
+      camera.position.z = 5;
+
+      function animate() {
+        requestAnimationFrame(animate);
+        particleSystem.rotation.x += 0.001;
+        particleSystem.rotation.y += 0.001;
+        renderer.render(scene, camera);
+      }
+      animate();
+    </script>
   </body>
 </html>
