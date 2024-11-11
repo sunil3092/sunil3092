@@ -3,7 +3,7 @@
   <head>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>Sunil Gauda - 3D Resume</title>
+    <title>Sunil Gauda</title>
     <!-- Tailwind CSS -->
     <link
       href="https://cdn.jsdelivr.net/npm/tailwindcss@2.2.19/dist/tailwind.min.css"
@@ -85,22 +85,80 @@
     >
       <h2 class="text-2xl font-semibold text-indigo-200 mb-4">Skills</h2>
       <div class="flex flex-wrap gap-4">
-        <span class="bg-indigo-500 text-white px-4 py-2 rounded-full"
-          >Microservices</span
+        <!-- C# Icon with Tooltip -->
+        <div
+          class="relative group bg-indigo-500 p-3 rounded-full hover:scale-110 transition-transform duration-200"
         >
-        <span class="bg-indigo-500 text-white px-4 py-2 rounded-full"
-          >Micro frontends</span
+          <img
+            src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/csharp/csharp-original.svg"
+            alt="C#"
+            class="w-8 h-8"
+          />
+          <span
+            class="absolute bottom-12 left-1/2 transform -translate-x-1/2 px-2 py-1 bg-black text-white text-sm rounded opacity-0 group-hover:opacity-100 transition-opacity duration-200"
+          >
+            C#
+          </span>
+        </div>
+
+        <!-- JavaScript Icon with Tooltip -->
+        <div
+          class="relative group bg-indigo-500 p-3 rounded-full hover:scale-110 transition-transform duration-200"
         >
-        <span class="bg-indigo-500 text-white px-4 py-2 rounded-full"
-          >Monoliths</span
+          <img
+            src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/javascript/javascript-original.svg"
+            alt="JavaScript"
+            class="w-8 h-8"
+          />
+          <span
+            class="absolute bottom-12 left-1/2 transform -translate-x-1/2 px-2 py-1 bg-black text-white text-sm rounded opacity-0 group-hover:opacity-100 transition-opacity duration-200"
+          >
+            JavaScript
+          </span>
+        </div>
+
+        <!-- TypeScript Icon with Tooltip -->
+        <div
+          class="relative group bg-indigo-500 p-3 rounded-full hover:scale-110 transition-transform duration-200"
         >
-        <span class="bg-indigo-500 text-white px-4 py-2 rounded-full">C#</span>
-        <span class="bg-indigo-500 text-white px-4 py-2 rounded-full"
-          >JavaScript</span
+          <img
+            src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/typescript/typescript-original.svg"
+            alt="TypeScript"
+            class="w-8 h-8"
+          />
+          <span
+            class="absolute bottom-12 left-1/2 transform -translate-x-1/2 px-2 py-1 bg-black text-white text-sm rounded opacity-0 group-hover:opacity-100 transition-opacity duration-200"
+          >
+            TypeScript
+          </span>
+        </div>
+
+        <!-- SQL Icon with Tooltip -->
+        <div
+          class="relative group bg-indigo-500 p-3 rounded-full hover:scale-110 transition-transform duration-200"
         >
-        <span class="bg-indigo-500 text-white px-4 py-2 rounded-full"
-          >TypeScript</span
-        >
+          <img
+            src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/mysql/mysql-original.svg"
+            alt="SQL"
+            class="w-8 h-8"
+          />
+          <span
+            class="absolute bottom-12 left-1/2 transform -translate-x-1/2 px-2 py-1 bg-black text-white text-sm rounded opacity-0 group-hover:opacity-100 transition-opacity duration-200"
+          >
+            SQL
+          </span>
+        </div>
+      </div>
+    </section>
+
+    <!-- Frameworks and Envionment Section -->
+    <section
+      class="w-full max-w-4xl bg-gray-800 p-6 rounded-lg shadow-lg mb-6 z-10"
+    >
+      <h2 class="text-2xl font-semibold text-indigo-200 mb-4">
+        Frameworks and Envionments
+      </h2>
+      <div class="flex flex-wrap gap-4">
         <span class="bg-indigo-500 text-white px-4 py-2 rounded-full"
           >.NET Framework</span
         >
@@ -137,6 +195,24 @@
         <span class="bg-indigo-500 text-white px-4 py-2 rounded-full">Git</span>
         <span class="bg-indigo-500 text-white px-4 py-2 rounded-full"
           >GitHub</span
+        >
+      </div>
+    </section>
+
+    <!-- Architectures Section -->
+    <section
+      class="w-full max-w-4xl bg-gray-800 p-6 rounded-lg shadow-lg mb-6 z-10"
+    >
+      <h2 class="text-2xl font-semibold text-indigo-200 mb-4">Architectures</h2>
+      <div class="flex flex-wrap gap-4">
+        <span class="bg-indigo-500 text-white px-4 py-2 rounded-full"
+          >Microservices</span
+        >
+        <span class="bg-indigo-500 text-white px-4 py-2 rounded-full"
+          >Micro frontends</span
+        >
+        <span class="bg-indigo-500 text-white px-4 py-2 rounded-full"
+          >Monoliths</span
         >
       </div>
     </section>
