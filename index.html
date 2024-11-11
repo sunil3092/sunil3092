@@ -65,26 +65,30 @@
     <section
       class="w-full max-w-4xl bg-gray-800 p-6 rounded-lg shadow-lg mb-6 z-10"
     >
-      <h2 class="text-2xl font-semibold text-indigo-200 mb-2">Summary</h2>
+      <h2 class="text-2xl font-semibold text-indigo-200 mb-2">
+        Professional Summary
+      </h2>
       <p class="text-gray-300">
-        Results-driven Software Engineer with nearly 5 years of experience,
-        specializing in developing robust and scalable enterprise applications
-        using the .NET Framework. Proficient in both monolithic and
-        microservices architectures, with strong expertise in React, Angular,
-        and SQL. Skilled in micro frontend development with React and .NET, and
-        always open to embracing new technologies and frameworks. Actively
-        seeking full-time opportunities in Software Engineering, with a primary
-        focus on .NET while welcoming the chance to work with diverse tech
-        stacks.
+        Accomplished Software Engineer with nearly 5 years of experience in
+        building high-performance, scalable enterprise solutions. Adept in the
+        full software development lifecycle, with a strong foundation in .NET,
+        React, Angular, and SQL. Versatile in both monolithic and microservices
+        architectures, including micro frontends with React and .NET. Passionate
+        about developing clean, efficient code and continuously enhancing skills
+        to stay at the forefront of industry advancements. Open to full-time
+        opportunities focused on .NET development, while embracing a broad range
+        of technologies and frameworks to drive impactful results.
       </p>
     </section>
 
     <!-- Skills Section -->
     <section
-      class="w-full max-w-4xl bg-gray-800 p-6 rounded-lg shadow-lg mb-6 z-10"
+      class="w-full max-w-4xl bg-gray-800 p-6 rounded-lg shadow-lg mb-6 z-10 mx-auto"
     >
-      <h2 class="text-2xl font-semibold text-indigo-200 mb-4">Skills</h2>
-      <div class="flex flex-wrap gap-4">
+      <h2 class="text-2xl font-semibold text-indigo-200 mb-4 text-center">
+        Programming Languages
+      </h2>
+      <div class="flex flex-wrap gap-4 justify-center">
         <!-- C# Icon with Tooltip -->
         <div
           class="relative group bg-indigo-500 p-3 rounded-full hover:scale-110 transition-transform duration-200"
@@ -396,8 +400,15 @@
 
       function animate() {
         requestAnimationFrame(animate);
+
+        const time = Date.now() * 0.001;
+        particleMaterial.opacity = 0.5 + 0.5 * Math.sin(time);
+        particleMaterial.needsUpdate = true;
+
+        // Rotation
         particleSystem.rotation.x += 0.001;
         particleSystem.rotation.y += 0.001;
+
         renderer.render(scene, camera);
       }
       animate();
