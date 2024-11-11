@@ -27,6 +27,45 @@
         z-index: -1;
       }
     </style>
+    <style>
+      /* Base style for the circular progress bar */
+      .circular-progress {
+        position: relative;
+        width: 150px;
+        height: 150px;
+      }
+
+      .circle {
+        position: relative;
+        width: 100%;
+        height: 100%;
+        border-radius: 50%;
+        background: conic-gradient(
+          #4f46e5 calc(var(--progress) * 1%),
+          #374151 0%
+        );
+        display: flex;
+        align-items: center;
+        justify-content: center;
+      }
+
+      .inner-circle {
+        position: absolute;
+        top: 50%;
+        left: 50%;
+        width: 80%;
+        height: 80%;
+        background-color: #1f2937;
+        border-radius: 50%;
+        transform: translate(-50%, -50%);
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        color: #4f46e5;
+        font-size: 1.5rem;
+        font-weight: bold;
+      }
+    </style>
   </head>
   <body class="flex flex-col items-center font-sans p-6">
     <!-- Background Animation Canvas -->
@@ -61,24 +100,21 @@
       </p>
     </header>
 
-    <!-- Summary Section -->
     <section
-      class="w-full max-w-4xl bg-gray-800 p-6 rounded-lg shadow-lg mb-6 z-10"
+      class="w-full max-w-4xl bg-gray-800 p-6 rounded-lg shadow-lg mb-6 z-10 flex flex-col items-center"
     >
-      <h2 class="text-2xl font-semibold text-indigo-200 mb-2">
-        Professional Summary
+      <h2 class="text-2xl font-semibold text-indigo-200 mb-4">
+        Software Engineering Progress
       </h2>
-      <p class="text-gray-300">
-        Accomplished Software Engineer with nearly 5 years of experience in
-        building high-performance, scalable enterprise solutions. Adept in the
-        full software development lifecycle, with a strong foundation in .NET,
-        React, Angular, and SQL. Versatile in both monolithic and microservices
-        architectures, including micro frontends with React and .NET. Passionate
-        about developing clean, efficient code and continuously enhancing skills
-        to stay at the forefront of industry advancements. Open to full-time
-        opportunities focused on .NET development, while embracing a broad range
-        of technologies and frameworks to drive impactful results.
-      </p>
+
+      <!-- Circular Progress Bar -->
+      <div class="circular-progress">
+        <div class="circle">
+          <div class="inner-circle">
+            <span id="experience-years">0.0</span>
+          </div>
+        </div>
+      </div>
     </section>
 
     <!-- Skills Section -->
@@ -412,6 +448,25 @@
         renderer.render(scene, camera);
       }
       animate();
+    </script>
+    <script>
+      document.addEventListener("DOMContentLoaded", function () {
+        const startYear = 2019 + 1;
+        const currentDate = new Date();
+        const currentYear = currentDate.getFullYear();
+        const currentMonth = currentDate.getMonth();
+
+        const experienceYears = currentYear - startYear;
+        const monthsThisYear = currentMonth + 1;
+        const decimalExperience = experienceYears + monthsThisYear / 12;
+        const experienceProgress = Math.round((monthsThisYear / 12) * 100);
+
+        document
+          .querySelector(".circle")
+          .style.setProperty("--progress", experienceProgress);
+        document.getElementById("experience-years").textContent =
+          decimalExperience.toFixed(1) + " y";
+      });
     </script>
   </body>
 </html>
