@@ -3,374 +3,328 @@
   <head>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>Sunil Gauda - Software Engineer</title>
-    <script src="https://cdn.tailwindcss.com"></script>
-    <script>
-      // Tailwind config for dark mode
-      tailwind.config = {
-        darkMode: "class", // Enables dark mode based on class
-      };
-    </script>
+    <title>Sunil Gauda - 3D Resume</title>
+    <!-- Tailwind CSS -->
+    <link
+      href="https://cdn.jsdelivr.net/npm/tailwindcss@2.2.19/dist/tailwind.min.css"
+      rel="stylesheet"
+    />
+    <!-- Three.js -->
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/three.js/r128/three.min.js"></script>
     <style>
-      /* Slider toggle styling */
-      .toggle-slider {
-        position: absolute;
-        top: 20px;
-        right: 20px;
-        display: flex;
-        align-items: center;
-        gap: 0.5rem;
+      body {
+        background-color: #1a1a2e;
+        color: #ffffff;
+        overflow-y: auto;
+        padding-bottom: 2rem;
       }
-      .switch {
-        position: relative;
-        display: inline-block;
-        width: 50px;
-        height: 24px;
-      }
-      .switch input {
-        opacity: 0;
-        width: 0;
-        height: 0;
-      }
-      .slider {
-        position: absolute;
-        cursor: pointer;
+      #background-animation {
+        position: fixed;
         top: 0;
         left: 0;
-        right: 0;
-        bottom: 0;
-        background-color: #ccc;
-        transition: 0.4s;
-        border-radius: 24px;
-      }
-      .slider:before {
-        position: absolute;
-        content: "";
-        height: 20px;
-        width: 20px;
-        left: 2px;
-        bottom: 2px;
-        background-color: white;
-        transition: 0.4s;
-        border-radius: 50%;
-      }
-      input:checked + .slider {
-        background-color: #4ade80;
-      }
-      input:checked + .slider:before {
-        transform: translateX(26px);
+        width: 100vw;
+        height: 100vh;
+        z-index: -1;
       }
     </style>
   </head>
-  <body>
-    <div class="bg-gray-200 dark:bg-gray-900 p-10 min-h-screen">
-      <div class="toggle-slider">
-        <span>🌞</span>
-        <label class="switch">
-          <input type="checkbox" id="theme-toggle" onclick="toggleTheme()" />
-          <span class="slider"></span>
-        </label>
-        <span>🌙</span>
+  <body class="flex flex-col items-center font-sans p-6">
+    <!-- Background Animation Canvas -->
+    <canvas id="background-animation"></canvas>
+
+    <!-- Header Section -->
+    <header class="w-full max-w-4xl text-center mb-10 z-10">
+      <h1 class="text-5xl font-bold text-indigo-300">Sunil Gauda</h1>
+      <p class="text-lg text-gray-400 mt-2">
+        Software Engineer | Full-Stack Developer
+      </p>
+      <p class="text-gray-500 mt-2">
+        Dublin, Ireland
+        <br />
+        <a href="mailto:sunilg3011992@gmail.com" class="text-indigo-300"
+          >sunilg3011992@gmail.com</a
+        >
+        ⋄
+        <a
+          href="https://www.linkedin.com/in/sunil3092"
+          target="_blank"
+          class="text-indigo-300"
+          >LinkedIn</a
+        >
+        ⋄
+        <a
+          href="https://github.com/sunil3092"
+          target="_blank"
+          class="text-indigo-300"
+          >GitHub</a
+        >
+      </p>
+    </header>
+
+    <!-- Summary Section -->
+    <section
+      class="w-full max-w-4xl bg-gray-800 p-6 rounded-lg shadow-lg mb-6 z-10"
+    >
+      <h2 class="text-2xl font-semibold text-indigo-200 mb-2">Summary</h2>
+      <p class="text-gray-300">
+        Results-driven Software Engineer with nearly 5 years of experience,
+        specializing in developing robust and scalable enterprise applications
+        using the .NET Framework. Proficient in both monolithic and
+        microservices architectures, with strong expertise in React, Angular,
+        and SQL. Skilled in micro frontend development with React and .NET, and
+        always open to embracing new technologies and frameworks. Actively
+        seeking full-time opportunities in Software Engineering, with a primary
+        focus on .NET while welcoming the chance to work with diverse tech
+        stacks.
+      </p>
+    </section>
+
+    <!-- Skills Section -->
+    <section
+      class="w-full max-w-4xl bg-gray-800 p-6 rounded-lg shadow-lg mb-6 z-10"
+    >
+      <h2 class="text-2xl font-semibold text-indigo-200 mb-4">Skills</h2>
+      <div class="flex flex-wrap gap-4">
+        <span class="bg-indigo-500 text-white px-4 py-2 rounded-full"
+          >Microservices</span
+        >
+        <span class="bg-indigo-500 text-white px-4 py-2 rounded-full"
+          >Micro frontends</span
+        >
+        <span class="bg-indigo-500 text-white px-4 py-2 rounded-full"
+          >Monoliths</span
+        >
+        <span class="bg-indigo-500 text-white px-4 py-2 rounded-full">C#</span>
+        <span class="bg-indigo-500 text-white px-4 py-2 rounded-full"
+          >JavaScript</span
+        >
+        <span class="bg-indigo-500 text-white px-4 py-2 rounded-full"
+          >TypeScript</span
+        >
+        <span class="bg-indigo-500 text-white px-4 py-2 rounded-full"
+          >.NET Framework</span
+        >
+        <span class="bg-indigo-500 text-white px-4 py-2 rounded-full"
+          >Entity Framework</span
+        >
+        <span class="bg-indigo-500 text-white px-4 py-2 rounded-full"
+          >Identity Framework</span
+        >
+        <span class="bg-indigo-500 text-white px-4 py-2 rounded-full"
+          >Node.js</span
+        >
+        <span class="bg-indigo-500 text-white px-4 py-2 rounded-full"
+          >NUnit</span
+        >
+        <span class="bg-indigo-500 text-white px-4 py-2 rounded-full"
+          >Cypress</span
+        >
+        <span class="bg-indigo-500 text-white px-4 py-2 rounded-full"
+          >React.js</span
+        >
+        <span class="bg-indigo-500 text-white px-4 py-2 rounded-full"
+          >Angular</span
+        >
+        <span class="bg-indigo-500 text-white px-4 py-2 rounded-full"
+          >MSSQL</span
+        >
+        <span class="bg-indigo-500 text-white px-4 py-2 rounded-full"
+          >Oracle</span
+        >
+        <span class="bg-indigo-500 text-white px-4 py-2 rounded-full"
+          >Azure DevOps</span
+        >
+        <span class="bg-indigo-500 text-white px-4 py-2 rounded-full">Git</span>
+        <span class="bg-indigo-500 text-white px-4 py-2 rounded-full"
+          >GitHub</span
+        >
       </div>
-      <div class="">
-        <div class="flex items-center justify-center m-5">
-          <div
-            class="w-[85%] max-w-screen-lg mx-auto rounded overflow-hidden shadow-xl bg-gray-400 dark:bg-gray-700 transition-colors duration-300 flex flex-col sm:flex-row items-center p-6 sm:p-8"
-          >
-            <div
-              class="overflow-hidden w-32 h-32 sm:w-48 sm:h-48 rounded-full transition-transform duration-300 transform hover:scale-105"
-            >
-              <img
-                class="w-full h-full object-cover"
-                src="./profile.jpg"
-                alt="Sunil Gauda"
-              />
-            </div>
+    </section>
 
-            <div
-              class="text-center sm:text-left sm:ml-8 flex flex-col justify-center items-center sm:items-start text-gray-800 dark:text-gray-300"
-            >
-              <div class="space-y-2 mb-4">
-                <div class="font-extrabold text-3xl">Sunil Gauda</div>
-                <div
-                  class="font-semibold text-xl text-gray-700 dark:text-gray-400"
-                >
-                  Software Engineer
-                </div>
-              </div>
+    <!-- Experience Section -->
+    <section
+      class="w-full max-w-4xl bg-gray-800 p-6 rounded-lg shadow-lg mb-6 z-10"
+    >
+      <h2 class="text-2xl font-semibold text-indigo-200 mb-4">Experience</h2>
 
-              <div class="flex space-x-4 mt-4">
-                <a
-                  href="https://www.linkedin.com/in/sunil3092/"
-                  target="_blank"
-                  rel="noopener noreferrer"
-                  class="text-gray-600 dark:text-gray-400 hover:text-blue-600"
-                  aria-label="LinkedIn Profile"
-                >
-                  <svg
-                    xmlns="http://www.w3.org/2000/svg"
-                    class="h-8 w-8"
-                    fill="currentColor"
-                    viewBox="0 0 24 24"
-                  >
-                    <path
-                      d="M19 0h-14c-2.761 0-5 2.239-5 5v14c0 2.761 2.239 5 5 5h14c2.761 0 5-2.239 5-5v-14c0-2.761-2.239-5-5-5zm-11 19h-3v-9h3v9zm-1.5-10.277c-.966 0-1.75-.783-1.75-1.75s.784-1.75 1.75-1.75 1.75.784 1.75 1.75-.784 1.75-1.75 1.75zm13.5 10.277h-3v-4.661c0-1.117-.025-2.556-1.558-2.556-1.558 0-1.796 1.217-1.796 2.476v4.741h-3v-9h2.845v1.235h.04c.396-.746 1.365-1.536 2.81-1.536 3.005 0 3.558 1.977 3.558 4.549v4.752z"
-                    />
-                  </svg>
-                </a>
-                <a
-                  href="https://github.com/sunil3092"
-                  target="_blank"
-                  rel="noopener noreferrer"
-                  class="text-gray-600 dark:text-gray-400 hover:text-black dark:hover:text-white"
-                  aria-label="GitHub Profile"
-                >
-                  <svg
-                    xmlns="http://www.w3.org/2000/svg"
-                    class="h-8 w-8"
-                    fill="currentColor"
-                    viewBox="0 0 24 24"
-                  >
-                    <path
-                      d="M12 0c-6.627 0-12 5.373-12 12 0 5.302 3.438 9.8 8.205 11.385.6.111.82-.261.82-.577v-2.234c-3.338.724-4.033-1.416-4.033-1.416-.546-1.389-1.333-1.761-1.333-1.761-1.089-.745.083-.73.083-.73 1.205.084 1.839 1.238 1.839 1.238 1.07 1.834 2.809 1.304 3.495.997.108-.774.418-1.305.762-1.605-2.665-.305-5.466-1.332-5.466-5.931 0-1.31.469-2.382 1.235-3.221-.124-.304-.535-1.527.118-3.176 0 0 1.008-.322 3.301 1.23.957-.266 1.983-.399 3.003-.404 1.02.005 2.047.138 3.006.404 2.29-1.552 3.297-1.23 3.297-1.23.656 1.649.245 2.872.12 3.176.77.839 1.235 1.911 1.235 3.221 0 4.61-2.803 5.625-5.475 5.921.43.371.823 1.104.823 2.227v3.293c0 .319.218.694.825.576 4.765-1.587 8.205-6.085 8.205-11.386 0-6.627-5.373-12-12-12z"
-                    />
-                  </svg>
-                </a>
-              </div>
-            </div>
-          </div>
-        </div>
-        <div class="flex items-start justify-center min-h-screen">
-          <!-- Left Column for Skill Cards -->
-          <!-- Unified Skills Card Container -->
-          <div
-            class="w-[40%] max-w-md mx-[4.5%] rounded overflow-hidden shadow-xl bg-gray-100 dark:bg-gray-800 p-6 space-y-4"
-          >
-            <!-- Card Title -->
-            <h3
-              class="text-xl font-semibold text-gray-700 dark:text-gray-200 mb-4"
-            >
-              Everyday Work
-            </h3>
-
-            <!-- Skills List -->
-            <div class="space-y-4">
-              <!-- JavaScript Skill Row -->
-              <div class="flex items-center">
-                <div class="w-12 h-12 rounded-md overflow-hidden mr-4">
-                  <img
-                    class="w-full h-full object-cover"
-                    src="./JavaScript.png"
-                    alt="JavaScript"
-                  />
-                </div>
-                <div class="flex-1">
-                  <div
-                    class="font-bold text-sm text-gray-700 dark:text-gray-300"
-                  >
-                    JavaScript
-                  </div>
-                  <div
-                    class="bg-gray-200 dark:bg-gray-600 rounded-full h-2 mt-1"
-                  >
-                    <div
-                      class="bg-blue-500 h-full rounded-full"
-                      style="width: 90%"
-                    ></div>
-                  </div>
-                </div>
-              </div>
-
-              <!-- Node.js Skill Row -->
-              <div class="flex items-center">
-                <div class="w-12 h-12 rounded-md overflow-hidden mr-4">
-                  <img
-                    class="w-full h-full object-cover"
-                    src="./nodeJs.jpg"
-                    alt="NodeJs"
-                  />
-                </div>
-                <div class="flex-1">
-                  <div
-                    class="font-bold text-sm text-gray-700 dark:text-gray-300"
-                  >
-                    Node.js
-                  </div>
-                  <div
-                    class="bg-gray-200 dark:bg-gray-600 rounded-full h-2 mt-1"
-                  >
-                    <div
-                      class="bg-green-500 h-full rounded-full"
-                      style="width: 75%"
-                    ></div>
-                  </div>
-                </div>
-              </div>
-
-              <!-- React Skill Row -->
-              <div class="flex items-center">
-                <div class="w-12 h-12 rounded-md overflow-hidden mr-4">
-                  <img
-                    class="w-full h-full object-cover"
-                    src="./react.svg"
-                    alt="React"
-                  />
-                </div>
-                <div class="flex-1">
-                  <div
-                    class="font-bold text-sm text-gray-700 dark:text-gray-300"
-                  >
-                    React
-                  </div>
-                  <div
-                    class="bg-gray-200 dark:bg-gray-600 rounded-full h-2 mt-1"
-                  >
-                    <div
-                      class="bg-green-500 h-full rounded-full"
-                      style="width: 75%"
-                    ></div>
-                  </div>
-                </div>
-              </div>
-
-              <!-- .NET Skill Row -->
-              <div class="flex items-center">
-                <div class="w-12 h-12 rounded-md overflow-hidden mr-4">
-                  <img
-                    class="w-full h-full object-cover"
-                    src="./DotNet.svg"
-                    alt=".NET"
-                  />
-                </div>
-                <div class="flex-1">
-                  <div
-                    class="font-bold text-sm text-gray-700 dark:text-gray-300"
-                  >
-                    .Net
-                  </div>
-                  <div
-                    class="bg-gray-200 dark:bg-gray-600 rounded-full h-2 mt-1"
-                  >
-                    <div
-                      class="bg-green-500 h-full rounded-full"
-                      style="width: 75%"
-                    ></div>
-                  </div>
-                </div>
-              </div>
-
-              <!-- SQL Skill Row -->
-              <div class="flex items-center">
-                <div class="w-12 h-12 rounded-md overflow-hidden mr-4">
-                  <img
-                    class="w-full h-full object-cover"
-                    src="./sql.png"
-                    alt="SQL"
-                  />
-                </div>
-                <div class="flex-1">
-                  <div
-                    class="font-bold text-sm text-gray-700 dark:text-gray-300"
-                  >
-                    SQL
-                  </div>
-                  <div
-                    class="bg-gray-200 dark:bg-gray-600 rounded-full h-2 mt-1"
-                  >
-                    <div
-                      class="bg-green-500 h-full rounded-full"
-                      style="width: 75%"
-                    ></div>
-                  </div>
-                </div>
-              </div>
-
-              <!-- Azure Skill Row -->
-              <div class="flex items-center">
-                <div class="w-12 h-12 rounded-md overflow-hidden mr-4">
-                  <img
-                    class="w-full h-full object-cover"
-                    src="./azure.png"
-                    alt="Azure"
-                  />
-                </div>
-                <div class="flex-1">
-                  <div
-                    class="font-bold text-sm text-gray-700 dark:text-gray-300"
-                  >
-                    Azure
-                  </div>
-                  <div
-                    class="bg-gray-200 dark:bg-gray-600 rounded-full h-2 mt-1"
-                  >
-                    <div
-                      class="bg-green-500 h-full rounded-full"
-                      style="width: 75%"
-                    ></div>
-                  </div>
-                </div>
-              </div>
-            </div>
-          </div>
-
-          <div
-            class="w-[40%] max-w-md mx-[4.5%] rounded overflow-hidden shadow-xl bg-gray-100 dark:bg-gray-800 p-6 space-y-4"
-          >
-            <!-- Right Empty Column -->
-            <div class="w-[50%]">
-              <h3
-                class="text-xl font-semibold text-gray-700 dark:text-gray-200 mb-4"
-              >
-                Interests
-              </h3>
-
-              <div class="space-y-4">
-                <!-- JavaScript Skill Row -->
-                <div class="flex items-center">
-                  <div class="w-12 h-12 rounded-md overflow-hidden mr-4">
-                    <img
-                      class="w-full h-full object-cover"
-                      src="./JavaScript.png"
-                      alt="JavaScript"
-                    />
-                  </div>
-                  <div class="flex-1">
-                    <div
-                      class="font-bold text-sm text-gray-700 dark:text-gray-300"
-                    >
-                      JavaScript
-                    </div>
-                    <div
-                      class="bg-gray-200 dark:bg-gray-600 rounded-full h-2 mt-1"
-                    >
-                      <div
-                        class="bg-blue-500 h-full rounded-full"
-                        style="width: 90%"
-                      ></div>
-                    </div>
-                  </div>
-                </div>
-              </div>
-            </div>
-          </div>
-        </div>
+      <!-- Experience at Aryza -->
+      <div
+        class="p-4 bg-gray-900 rounded-md hover:bg-gray-700 transition duration-200 mb-4"
+      >
+        <h3 class="text-xl text-white">
+          Software Engineer - Aryza Ireland Ltd
+        </h3>
+        <span class="text-sm text-gray-400"
+          >04/2023 – Present, Dublin, Ireland</span
+        >
+        <ul class="list-disc text-gray-300 ml-6 mt-2">
+          <li>
+            Developed scalable API service for the billing system, enhancing
+            client billing efficiency by 50%.
+          </li>
+          <li>
+            Redesigned front-end with Kendo UI Grid, enabling seamless Excel
+            export functionality.
+          </li>
+          <li>
+            Optimized database performance, improving report generation speed by
+            10%.
+          </li>
+          <li>
+            Implemented CI/CD pipelines via Azure DevOps, ensuring continuous
+            integration and updates.
+          </li>
+        </ul>
       </div>
-    </div>
+
+      <!-- Experience at Learning Mate Solutions -->
+      <div
+        class="p-4 bg-gray-900 rounded-md hover:bg-gray-700 transition duration-200 mb-4"
+      >
+        <h3 class="text-xl text-white">
+          Software Engineer - Learning Mate Solutions Pvt. Ltd
+        </h3>
+        <span class="text-sm text-gray-400"
+          >05/2021 – 12/2021, Mumbai, India</span
+        >
+        <ul class="list-disc text-gray-300 ml-6 mt-2">
+          <li>
+            Developed authentication systems and data management for K12 student
+            applications.
+          </li>
+          <li>
+            Enhanced front-end usability by 30% using Angular, JavaScript, and
+            Electron.
+          </li>
+          <li>
+            Automated deployment via GitHub Actions and Azure, improving
+            application availability by 20%.
+          </li>
+        </ul>
+      </div>
+
+      <!-- Additional Experiences -->
+      <div
+        class="p-4 bg-gray-900 rounded-md hover:bg-gray-700 transition duration-200 mb-4"
+      >
+        <h3 class="text-xl text-white">
+          Jr. Software Engineer - Acideas Solutions Pvt. Ltd, CRMNEXT
+        </h3>
+        <span class="text-sm text-gray-400"
+          >06/2020 – 04/2021, Mumbai, India</span
+        >
+        <ul class="list-disc text-gray-300 ml-6 mt-2">
+          <li>
+            Developed .NET-based template engine for CRM requirements and
+            managed Oracle, MSSQL databases.
+          </li>
+          <li>Handled manual deployments on Windows platforms using IIS.</li>
+        </ul>
+      </div>
+
+      <div
+        class="p-4 bg-gray-900 rounded-md hover:bg-gray-700 transition duration-200"
+      >
+        <h3 class="text-xl text-white">
+          Software Developer - DIMA Engineering Pvt. Ltd
+        </h3>
+        <span class="text-sm text-gray-400"
+          >03/2019 – 06/2020, Mumbai, India</span
+        >
+        <ul class="list-disc text-gray-300 ml-6 mt-2">
+          <li>
+            Led form and state management development for HYDRA using React and
+            JavaScript.
+          </li>
+          <li>
+            Enhanced ELN maintenance using MVC architecture, Razor syntax, and
+            C#.
+          </li>
+          <li>Oversaw full-cycle delivery and deployment following UAT.</li>
+        </ul>
+      </div>
+    </section>
+
+    <!-- Education Section -->
+    <section
+      class="w-full max-w-4xl bg-gray-800 p-6 rounded-lg shadow-lg mb-6 z-10"
+    >
+      <h2 class="text-2xl font-semibold text-indigo-200 mb-4">Education</h2>
+      <div class="p-4 bg-gray-900 rounded-md mb-4">
+        <h3 class="text-lg text-white">
+          Master of Science in Artificial Intelligence
+        </h3>
+        <p class="text-gray-400">
+          Dublin Business School, 2023 - Grade: 79.96%
+        </p>
+      </div>
+      <div class="p-4 bg-gray-900 rounded-md mb-4">
+        <h3 class="text-lg text-white">
+          Post Graduate Diploma in Advanced Computing
+        </h3>
+        <p class="text-gray-400">CDAC-Mumbai, 2018</p>
+      </div>
+      <div class="p-4 bg-gray-900 rounded-md">
+        <h3 class="text-lg text-white">
+          Bachelor of Science in Electrical Engineering
+        </h3>
+        <p class="text-gray-400">Mumbai University, 2016</p>
+      </div>
+    </section>
+
+    <!-- Three.js Script for Background Animation -->
     <script>
-      // Apply saved theme on page load
-      document.addEventListener("DOMContentLoaded", () => {
-        const savedTheme = localStorage.getItem("theme");
-        if (savedTheme === "dark") {
-          document.body.classList.add("dark");
-          document.getElementById("theme-toggle").checked = true;
-        }
+      const canvas = document.getElementById("background-animation");
+      const scene = new THREE.Scene();
+      const camera = new THREE.PerspectiveCamera(
+        75,
+        window.innerWidth / window.innerHeight,
+        0.1,
+        1000
+      );
+      const renderer = new THREE.WebGLRenderer({ canvas: canvas, alpha: true });
+      renderer.setSize(window.innerWidth, window.innerHeight);
+
+      window.addEventListener("resize", () => {
+        renderer.setSize(window.innerWidth, window.innerHeight);
+        camera.aspect = window.innerWidth / window.innerHeight;
+        camera.updateProjectionMatrix();
       });
 
-      // Toggle dark mode on checkbox change
-      function toggleTheme() {
-        const isDarkMode = document.body.classList.toggle("dark");
-        localStorage.setItem("theme", isDarkMode ? "dark" : "light");
+      const particles = new THREE.BufferGeometry();
+      const particleCount = 700;
+      const positions = [];
+
+      for (let i = 0; i < particleCount; i++) {
+        positions.push((Math.random() - 0.5) * 20);
+        positions.push((Math.random() - 0.5) * 20);
+        positions.push((Math.random() - 0.5) * 20);
       }
+
+      particles.setAttribute(
+        "position",
+        new THREE.Float32BufferAttribute(positions, 3)
+      );
+
+      const particleMaterial = new THREE.PointsMaterial({
+        color: 0x44aa88,
+        size: 0.1,
+        transparent: true,
+        opacity: 0.7,
+      });
+
+      const particleSystem = new THREE.Points(particles, particleMaterial);
+      scene.add(particleSystem);
+
+      camera.position.z = 5;
+
+      function animate() {
+        requestAnimationFrame(animate);
+        particleSystem.rotation.x += 0.001;
+        particleSystem.rotation.y += 0.001;
+        renderer.render(scene, camera);
+      }
+      animate();
     </script>
   </body>
 </html>
