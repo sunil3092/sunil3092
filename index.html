@@ -42,7 +42,7 @@
         border-radius: 50%;
         background: conic-gradient(
           #46e576 calc(var(--progress) * 1%),
-          #374151 0%
+          #1f372b 0%
         );
         display: flex;
         align-items: center;
@@ -55,7 +55,7 @@
         left: 50%;
         width: 80%;
         height: 80%;
-        background-color: #1f2937;
+        background-color: #1f372b;
         border-radius: 50%;
         transform: translate(-50%, -50%);
         display: flex;
@@ -103,7 +103,7 @@
     <div class="flex flex-col md:flex-row md:justify-center gap-6">
       <!-- Experience Progress Section -->
       <section
-        class="w-full md:w-1/2 bg-gray-800 p-8 rounded-lg shadow-lg mb-6 z-10 flex justify-center items-center"
+        class="w-full md:w-1/2 bg-gray-800 p-8 rounded-lg shadow-lg mb-6 z-10 flex justify-center items-center relative group"
       >
         <!-- Circular Progress Bar -->
         <div class="circular-progress">
@@ -112,6 +112,12 @@
               <span id="experience-years">0.0</span>
             </div>
           </div>
+        </div>
+
+        <div
+          class="absolute top-0 left-1/2 transform -translate-x-1/2 -translate-y-full bg-gray-700 text-white text-sm p-2 rounded opacity-0 group-hover:opacity-100 transition-opacity duration-300"
+        >
+          Years of experience in development
         </div>
       </section>
 
@@ -122,23 +128,8 @@
         <h2 class="text-2xl font-semibold text-green-300 mb-4 text-center">
           Programming Languages
         </h2>
-        <div class="flex flex-wrap gap-4 justify-center">
-          <!-- C# Icon with Tooltip -->
-          <div
-            class="relative group bg-indigo-500 p-3 rounded-full hover:scale-110 transition-transform duration-200"
-          >
-            <img
-              src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/csharp/csharp-original.svg"
-              alt="C#"
-              class="w-8 h-8"
-            />
-            <span
-              class="absolute bottom-12 left-1/2 transform -translate-x-1/2 px-2 py-1 bg-black text-white text-sm rounded opacity-0 group-hover:opacity-100 transition-opacity duration-200"
-            >
-              C#
-            </span>
-          </div>
 
+        <div class="flex flex-wrap gap-4 justify-center">
           <!-- JavaScript Icon with Tooltip -->
           <div
             class="relative group bg-indigo-500 p-3 rounded-full hover:scale-110 transition-transform duration-200"
@@ -152,6 +143,22 @@
               class="absolute bottom-12 left-1/2 transform -translate-x-1/2 px-2 py-1 bg-black text-white text-sm rounded opacity-0 group-hover:opacity-100 transition-opacity duration-200"
             >
               JavaScript
+            </span>
+          </div>
+
+          <!-- C# Icon with Tooltip -->
+          <div
+            class="relative group bg-indigo-500 p-3 rounded-full hover:scale-110 transition-transform duration-200"
+          >
+            <img
+              src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/csharp/csharp-original.svg"
+              alt="C#"
+              class="w-8 h-8"
+            />
+            <span
+              class="absolute bottom-12 left-1/2 transform -translate-x-1/2 px-2 py-1 bg-black text-white text-sm rounded opacity-0 group-hover:opacity-100 transition-opacity duration-200"
+            >
+              C#
             </span>
           </div>
 
