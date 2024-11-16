@@ -1,0 +1,51 @@
+body {
+    background-color: #1a1a2e;
+    color: #ffffff;
+    overflow-y: auto;
+    padding-bottom: 2rem;
+  }
+  #background-animation {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100vw;
+    height: 100vh;
+    z-index: -1;
+  }
+
+  .circular-progress {
+    position: relative;
+    width: 150px;
+    height: 150px;
+  }
+
+  .circle {
+    position: relative;
+    width: 100%;
+    height: 100%;
+    border-radius: 50%;
+    background: conic-gradient(
+      #46e576 calc(var(--progress) * 1%),
+      #1f372b 0%
+    );
+    display: flex;
+    align-items: center;
+    justify-content: center;
+  }
+
+  .inner-circle {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    width: 80%;
+    height: 80%;
+    background-color: #1f372b;
+    border-radius: 50%;
+    transform: translate(-50%, -50%);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    color: rgba(199, 210, 254, var(--tw-text-opacity));
+    font-size: 1.5rem;
+    font-weight: bold;
+  }

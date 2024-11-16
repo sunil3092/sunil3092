@@ -9,68 +9,14 @@
       href="https://cdn.jsdelivr.net/npm/tailwindcss@2.2.19/dist/tailwind.min.css"
       rel="stylesheet"
     />
+    <link rel="stylesheet" href="style.css">
     <!-- Three.js -->
     <script src="https://cdnjs.cloudflare.com/ajax/libs/three.js/r128/three.min.js"></script>
-    <style>
-      body {
-        background-color: #1a1a2e;
-        color: #ffffff;
-        overflow-y: auto;
-        padding-bottom: 2rem;
-      }
-      #background-animation {
-        position: fixed;
-        top: 0;
-        left: 0;
-        width: 100vw;
-        height: 100vh;
-        z-index: -1;
-      }
-    </style>
-    <style>
-      /* Base style for the circular progress bar */
-      .circular-progress {
-        position: relative;
-        width: 150px;
-        height: 150px;
-      }
-
-      .circle {
-        position: relative;
-        width: 100%;
-        height: 100%;
-        border-radius: 50%;
-        background: conic-gradient(
-          #46e576 calc(var(--progress) * 1%),
-          #1f372b 0%
-        );
-        display: flex;
-        align-items: center;
-        justify-content: center;
-      }
-
-      .inner-circle {
-        position: absolute;
-        top: 50%;
-        left: 50%;
-        width: 80%;
-        height: 80%;
-        background-color: #1f372b;
-        border-radius: 50%;
-        transform: translate(-50%, -50%);
-        display: flex;
-        align-items: center;
-        justify-content: center;
-        color: rgba(199, 210, 254, var(--tw-text-opacity));
-        font-size: 1.5rem;
-        font-weight: bold;
-      }
-    </style>
+    <script src="./script.js"></script>
   </head>
   <body class="flex flex-col items-center font-sans p-6">
     <!-- Background Animation Canvas -->
     <canvas id="background-animation"></canvas>
-
     <!-- Header Section -->
     <header class="w-full max-w-4xl text-center mb-10 z-10">
       <h1 class="text-5xl font-bold text-indigo-300">Sunil Gauda</h1>
@@ -398,83 +344,10 @@
 
     <!-- Three.js Script for Background Animation -->
     <script>
-      const canvas = document.getElementById("background-animation");
-      const scene = new THREE.Scene();
-      const camera = new THREE.PerspectiveCamera(
-        75,
-        window.innerWidth / window.innerHeight,
-        0.1,
-        1000
-      );
-      const renderer = new THREE.WebGLRenderer({ canvas: canvas, alpha: true });
-      renderer.setSize(window.innerWidth, window.innerHeight);
-
-      window.addEventListener("resize", () => {
-        renderer.setSize(window.innerWidth, window.innerHeight);
-        camera.aspect = window.innerWidth / window.innerHeight;
-        camera.updateProjectionMatrix();
-      });
-
-      const particles = new THREE.BufferGeometry();
-      const particleCount = 700;
-      const positions = [];
-
-      for (let i = 0; i < particleCount; i++) {
-        positions.push((Math.random() - 0.5) * 20);
-        positions.push((Math.random() - 0.5) * 20);
-        positions.push((Math.random() - 0.5) * 20);
-      }
-
-      particles.setAttribute(
-        "position",
-        new THREE.Float32BufferAttribute(positions, 3)
-      );
-
-      const particleMaterial = new THREE.PointsMaterial({
-        color: 0x44aa88,
-        size: 0.1,
-        transparent: true,
-        opacity: 0.7,
-      });
-
-      const particleSystem = new THREE.Points(particles, particleMaterial);
-      scene.add(particleSystem);
-
-      camera.position.z = 5;
-
-      function animate() {
-        requestAnimationFrame(animate);
-
-        const time = Date.now() * 0.001;
-        particleMaterial.opacity = 0.5 + 0.5 * Math.sin(time);
-        particleMaterial.needsUpdate = true;
-
-        // Rotation
-        particleSystem.rotation.x += 0.001;
-        particleSystem.rotation.y += 0.001;
-
-        renderer.render(scene, camera);
-      }
-      animate();
+      
     </script>
     <script>
-      document.addEventListener("DOMContentLoaded", function () {
-        const startYear = 2019 + 1;
-        const currentDate = new Date();
-        const currentYear = currentDate.getFullYear();
-        const currentMonth = currentDate.getMonth();
-
-        const experienceYears = currentYear - startYear;
-        const monthsThisYear = currentMonth + 1;
-        const decimalExperience = experienceYears + monthsThisYear / 12;
-        const experienceProgress = Math.round((monthsThisYear / 12) * 100);
-
-        document
-          .querySelector(".circle")
-          .style.setProperty("--progress", experienceProgress);
-        document.getElementById("experience-years").textContent =
-          decimalExperience.toFixed(1) + " y";
-      });
+      
     </script>
   </body>
 </html>
