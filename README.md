@@ -12,7 +12,7 @@ I’m a Software Engineer hanging out in Dublin, Ireland. With almost 5 years of
 
 ## 🛠️ Current Projects
 
-I’m currently diving into projects at Aryza, focusing on billing systems and CMS applications. Always looking to improve and optimize!
+I’m currently diving into projects at Cubic, and most of my projects in this account are old, but would be happy to connect if any questions.
 
 ## 💬 Let’s Connect
 
