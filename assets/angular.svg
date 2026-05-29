@@ -1,4 +1,4 @@
 <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 128 128">
-  <polygon points="64 12 114 38 104 100 64 116 24 100 14 38" fill="#dd0031"/>
-  <text x="50%" y="72%" text-anchor="middle" fill="white" font-family="Inter, Arial, sans-serif" font-size="46" font-weight="800">A</text>
+    <polygon points="64 12 114 38 104 100 64 116 24 100 14 38" fill="#dd0031"/>
+    <text x="50%" y="72%" text-anchor="middle" fill="white" font-family="Inter, Arial, sans-serif" font-size="46" font-weight="800">A</text>
 </svg>

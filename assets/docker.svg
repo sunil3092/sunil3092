@@ -1,9 +1,9 @@
 <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 128 128">
-  <rect width="128" height="128" rx="24" fill="#2496ed"/>
-  <rect x="26" y="66" width="76" height="18" rx="4" fill="#1e5d9e"/>
-  <rect x="32" y="48" width="60" height="12" rx="4" fill="#1e5d9e"/>
-  <circle cx="44" cy="60" r="5" fill="#fff"/>
-  <circle cx="62" cy="60" r="5" fill="#fff"/>
-  <circle cx="80" cy="60" r="5" fill="#fff"/>
-  <text x="50%" y="108%" text-anchor="middle" fill="white" font-family="Inter, Arial, sans-serif" font-size="22" font-weight="700">Docker</text>
+    <rect width="128" height="128" rx="24" fill="#2496ed"/>
+    <rect x="26" y="66" width="76" height="18" rx="4" fill="#1e5d9e"/>
+    <rect x="32" y="48" width="60" height="12" rx="4" fill="#1e5d9e"/>
+    <circle cx="44" cy="60" r="5" fill="#fff"/>
+    <circle cx="62" cy="60" r="5" fill="#fff"/>
+    <circle cx="80" cy="60" r="5" fill="#fff"/>
+    <text x="50%" y="108%" text-anchor="middle" fill="white" font-family="Inter, Arial, sans-serif" font-size="22" font-weight="700">Docker</text>
 </svg>
