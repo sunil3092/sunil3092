@@ -1,374 +1,159 @@
-<!DOCTYPE html>
+﻿<!DOCTYPE html>
 <html lang="en">
   <head>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>Sunil Gauda</title>
-    <!-- Tailwind CSS -->
+    <title>Sunil G | Resume</title>
     <link
       href="https://cdn.jsdelivr.net/npm/tailwindcss@2.2.19/dist/tailwind.min.css"
       rel="stylesheet"
     />
-    <link rel="stylesheet" href="style.css">
-    <!-- Three.js -->
+    <link rel="stylesheet" href="style.css" />
     <script src="https://cdnjs.cloudflare.com/ajax/libs/three.js/r128/three.min.js"></script>
-    <script src="./script.js"></script>
+    <script src="./script.js" defer></script>
   </head>
-  <body class="flex flex-col items-center font-sans p-6">
-    <!-- Background Animation Canvas -->
+  <body class="resume-shell">
     <canvas id="background-animation"></canvas>
-    <!-- Header Section -->
-    <header class="w-full max-w-4xl text-center mb-10 z-10">
-      <h1 class="text-5xl font-bold text-indigo-300">Sunil Gauda</h1>
-      <p class="text-lg text-gray-400 mt-2">
-        Software Engineer | Full-Stack Developer
-      </p>
-      <p class="text-gray-500 mt-2">
-        Dublin, Ireland
-        <br />
-        <a href="mailto:sunilg3011992@gmail.com" class="text-indigo-300"
-          >sunilg3011992@gmail.com</a
-        >
-        ⋄
-        <a
-          href="https://www.linkedin.com/in/sunil3092"
-          target="_blank"
-          class="text-indigo-300"
-          >LinkedIn</a
-        >
-        ⋄
-        <a
-          href="https://github.com/sunil3092"
-          target="_blank"
-          class="text-indigo-300"
-          >GitHub</a
-        >
-      </p>
-    </header>
 
-    <div class="flex flex-col md:flex-row md:justify-center gap-6">
-      <!-- Experience Progress Section -->
-      <section
-        class="w-full md:w-1/2 bg-gray-800 p-8 rounded-lg shadow-lg mb-6 z-10 flex justify-center items-center relative group"
-      >
-        <!-- Circular Progress Bar -->
-        <div class="circular-progress">
-          <div class="circle">
-            <div class="inner-circle">
-              <span id="experience-years">0.0</span>
+    <div class="page-shell">
+      <nav class="top-nav">
+        <a href="#about">/about</a>
+        <a href="#skills">/skills</a>
+        <a href="#experience">/experience</a>
+        <a href="#contact">/contact</a>
+      </nav>
+
+      <main class="hero-grid">
+        <section class="hero-panel glass-card" id="about">
+          <div class="hero-header">
+            <span class="terminal-tag">&gt; sunil.profile --open</span>
+            <h1>Sunil G</h1>
+            <p class="hero-title">Software Developer</p>
+          </div>
+
+          <p class="hero-copy">
+            I build scalable, reliable and developer-friendly software that solves
+            real-world problems. Experienced in building web applications, APIs,
+            and cloud-native solutions.
+          </p>
+
+          <div class="hero-links">
+            <a href="https://github.com/sunil3092" target="_blank">GitHub</a>
+            <a href="https://www.linkedin.com/in/sunil3092" target="_blank">LinkedIn</a>
+            <a href="#contact">Resume</a>
+            <a href="mailto:sunilg3011992@gmail.com">Contact</a>
+          </div>
+
+          <div class="hero-details">
+            <div>
+              <span class="detail-label">Location</span>
+              <p>Dublin, Ireland</p>
+            </div>
+            <div>
+              <span class="detail-label">Email</span>
+              <p>sunilg3011992@gmail.com</p>
             </div>
           </div>
-        </div>
+        </section>
 
-        <div
-          class="absolute top-0 left-1/2 transform -translate-x-1/2 -translate-y-full bg-gray-700 text-white text-sm p-2 rounded opacity-0 group-hover:opacity-100 transition-opacity duration-300"
-        >
-          Years of experience in development
-        </div>
-      </section>
-
-      <!-- Skills Section -->
-      <section
-        class="w-full md:w-1/2 bg-gray-800 p-6 rounded-lg shadow-lg mb-6 z-10 mx-auto"
-      >
-        <h2 class="text-2xl font-semibold text-green-300 mb-4 text-center">
-          Programming Languages
-        </h2>
-
-        <div class="flex flex-wrap gap-4 justify-center">
-          <!-- JavaScript Icon with Tooltip -->
-          <div
-            class="relative group bg-indigo-500 p-3 rounded-full hover:scale-110 transition-transform duration-200"
-          >
-            <img
-              src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/javascript/javascript-original.svg"
-              alt="JavaScript"
-              class="w-8 h-8"
-            />
-            <span
-              class="absolute bottom-12 left-1/2 transform -translate-x-1/2 px-2 py-1 bg-black text-white text-sm rounded opacity-0 group-hover:opacity-100 transition-opacity duration-200"
-            >
-              JavaScript
-            </span>
+        <section class="stats-panel glass-card">
+          <div class="stats-top experience-top">
+            <div class="experience-hero">
+              <p class="subtle-label">Experience</p>
+              <h2><span id="experience-years">0.0</span><span class="percent">y</span></h2>
+              <p class="experience-subtitle">Since March 2019</p>
+            </div>
+            <div class="experience-status-card">
+              <span class="status-label">Next milestone</span>
+              <strong id="next-year-text">8.0 y</strong>
+            </div>
           </div>
 
-          <!-- C# Icon with Tooltip -->
-          <div
-            class="relative group bg-indigo-500 p-3 rounded-full hover:scale-110 transition-transform duration-200"
-          >
-            <img
-              src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/csharp/csharp-original.svg"
-              alt="C#"
-              class="w-8 h-8"
-            />
-            <span
-              class="absolute bottom-12 left-1/2 transform -translate-x-1/2 px-2 py-1 bg-black text-white text-sm rounded opacity-0 group-hover:opacity-100 transition-opacity duration-200"
-            >
-              C#
-            </span>
+          <div class="experience-progress-panel">
+            <div class="progress-header">
+              <span>Loading next year</span>
+              <span id="experience-progress-text">0%</span>
+            </div>
+            <div class="experience-progress-track">
+              <div class="experience-progress-fill" id="experience-progress-fill"></div>
+            </div>
           </div>
+        </section>
+      </main>
 
-          <!-- TypeScript Icon with Tooltip -->
-          <div
-            class="relative group bg-indigo-500 p-3 rounded-full hover:scale-110 transition-transform duration-200"
-          >
-            <img
-              src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/typescript/typescript-original.svg"
-              alt="TypeScript"
-              class="w-8 h-8"
-            />
-            <span
-              class="absolute bottom-12 left-1/2 transform -translate-x-1/2 px-2 py-1 bg-black text-white text-sm rounded opacity-0 group-hover:opacity-100 transition-opacity duration-200"
-            >
-              TypeScript
-            </span>
-          </div>
-
-          <!-- SQL Icon with Tooltip -->
-          <div
-            class="relative group bg-indigo-500 p-3 rounded-full hover:scale-110 transition-transform duration-200"
-          >
-            <img
-              src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/mysql/mysql-original.svg"
-              alt="SQL"
-              class="w-8 h-8"
-            />
-            <span
-              class="absolute bottom-12 left-1/2 transform -translate-x-1/2 px-2 py-1 bg-black text-white text-sm rounded opacity-0 group-hover:opacity-100 transition-opacity duration-200"
-            >
-              SQL
-            </span>
-          </div>
+      <section class="skills-panel glass-card" id="skills">
+        <p class="terminal-tag">&gt; skills</p>
+        <div class="skill-list">
+          <span class="skill-item"><img src="assets/typescript.svg" alt="TypeScript" class="skill-logo" />TypeScript</span>
+          <span class="skill-item"><img src="assets/javascript.svg" alt="JavaScript" class="skill-logo" />JavaScript</span>
+          <span class="skill-item"><img src="assets/angular.svg" alt="Angular" class="skill-logo" />Angular</span>
+          <span class="skill-item"><img src="assets/dotnet.svg" alt=".NET" class="skill-logo" />.NET</span>
+          <span class="skill-item"><img src="assets/csharp.svg" alt="C#" class="skill-logo" />C#</span>
+          <span class="skill-item"><img src="assets/nodejs.svg" alt="Node.js" class="skill-logo" />Node.js</span>
+          <span class="skill-item"><img src="assets/express.svg" alt="Express" class="skill-logo" />Express</span>
+          <span class="skill-item"><img src="assets/sqlserver.svg" alt="SQL Server" class="skill-logo" />SQL Server</span>
+          <span class="skill-item"><img src="assets/azure.svg" alt="Azure" class="skill-logo" />Azure</span>
+          <span class="skill-item"><img src="assets/aws.svg" alt="AWS" class="skill-logo" />AWS</span>
+          <span class="skill-item"><img src="assets/docker.svg" alt="Docker" class="skill-logo" />Docker</span>
+          <span class="skill-item"><img src="assets/git.svg" alt="Git" class="skill-logo" />Git</span>
         </div>
       </section>
 
-      <!-- Architectures Section -->
-      <section
-        class="w-full md:w-1/2 bg-gray-800 p-6 rounded-lg shadow-lg mb-6 z-10 mx-auto"
-      >
-        <h2 class="text-2xl font-semibold text-yellow-200 mb-4 text-center">
-          Architectures
-        </h2>
-        <div class="flex flex-col gap-4">
-          <span class="bg-indigo-500 text-white px-4 py-2 rounded-full"
-            >Microservices</span
-          >
-          <span class="bg-indigo-500 text-white px-4 py-2 rounded-full"
-            >Micro frontends</span
-          >
-          <span class="bg-indigo-500 text-white px-4 py-2 rounded-full"
-            >Monoliths</span
-          >
+      <section class="experience-grid">
+        <article class="glass-card experience-summary" id="experience">
+          <h2>Experience</h2>
+          <div class="experience-card">
+            <h3>Software Engineer II - Cubic³</h3>
+            <span>04/2023 – Present, Dublin, Ireland</span>
+            <ul>
+              <li>Working with a team of 5 to develop a scalable API service for telecommunication and IOT devices used in Automotive industries.</li>
+              <li>Working to connect millions of devices to the cloud, ensuring real-time data processing and analytics.</li>
+              <li>Developing Userinterfaces using Angular for seemless connection and management of devices and plans.</li>
+              <li>Collaborating with cross-functional teams to ensure the smooth integration of new features and bug fixes.</li>
+            </ul>
+          </div>
+
+          <div class="experience-card">
+            <h3>Software Engineer - Aryza Ireland Ltd</h3>
+            <span>04/2023 – Present, Dublin, Ireland</span>
+            <ul>
+              <li>Developed scalable API service for the billing system, enhancing client billing efficiency by 50%.</li>
+              <li>Redesigned front-end with Kendo UI Grid, enabling seamless Excel export functionality.</li>
+              <li>Optimized database performance, improving report generation speed by 10%.</li>
+              <li>Implemented CI/CD pipelines via Azure DevOps, ensuring continuous integration and updates.</li>
+            </ul>
+          </div>
+        </article>
+
+        <article class="glass-card education-panel">
+          <h2>Education</h2>
+          <div class="education-item">
+            <h3>Master of Science in Artificial Intelligence</h3>
+            <p>Dublin Business School, 2023 - Grade: 79.96%</p>
+          </div>
+          <div class="education-item">
+            <h3>Post Graduate Diploma in Advanced Computing</h3>
+            <p>CDAC-Mumbai, 2018</p>
+          </div>
+          <div class="education-item">
+            <h3>Bachelor of Science in Electrical Engineering</h3>
+            <p>Mumbai University, 2016</p>
+          </div>
+        </article>
+      </section>
+
+      <section class="contact-panel glass-card" id="contact">
+        <div>
+          <span class="terminal-tag">&gt; contact</span>
+          <h2>Get in touch</h2>
+          <p>Ready to collaborate on your next technical product or cloud-native solution.</p>
+        </div>
+        <div class="contact-links">
+          <a href="mailto:sunilg3011992@gmail.com">sunilg3011992@gmail.com</a>
+          <a href="https://github.com/sunil3092" target="_blank">github.com/sunil3092</a>
+          <a href="https://www.linkedin.com/in/sunil3092" target="_blank">linkedin.com/in/sunil3092</a>
         </div>
       </section>
     </div>
-
-    <!-- Frameworks and Envionment Section -->
-    <section
-      class="w-full max-w-4xl bg-gray-800 p-6 rounded-lg shadow-lg mb-6 z-10"
-    >
-      <h2 class="text-2xl font-semibold text-indigo-200 mb-4">
-        Frameworks and Envionments
-      </h2>
-      <div class="flex flex-wrap gap-4">
-        <span class="bg-indigo-500 text-white px-4 py-2 rounded-full"
-          >.NET Framework</span
-        >
-        <span class="bg-indigo-500 text-white px-4 py-2 rounded-full"
-          >Entity Framework</span
-        >
-        <span class="bg-indigo-500 text-white px-4 py-2 rounded-full"
-          >Identity Framework</span
-        >
-        <span class="bg-indigo-500 text-white px-4 py-2 rounded-full"
-          >Node.js</span
-        >
-        <span class="bg-indigo-500 text-white px-4 py-2 rounded-full"
-          >NUnit</span
-        >
-        <span class="bg-indigo-500 text-white px-4 py-2 rounded-full"
-          >Cypress</span
-        >
-        <span class="bg-indigo-500 text-white px-4 py-2 rounded-full"
-          >React.js</span
-        >
-        <span class="bg-indigo-500 text-white px-4 py-2 rounded-full"
-          >Angular</span
-        >
-        <span class="bg-indigo-500 text-white px-4 py-2 rounded-full"
-          >MSSQL</span
-        >
-        <span class="bg-indigo-500 text-white px-4 py-2 rounded-full"
-          >Oracle</span
-        >
-        <span class="bg-indigo-500 text-white px-4 py-2 rounded-full"
-          >Azure DevOps</span
-        >
-        <span class="bg-indigo-500 text-white px-4 py-2 rounded-full">Git</span>
-        <span class="bg-indigo-500 text-white px-4 py-2 rounded-full"
-          >GitHub</span
-        >
-      </div>
-    </section>
-
-    <!-- Experience Section -->
-    <section
-      class="w-full max-w-4xl bg-gray-800 p-6 rounded-lg shadow-lg mb-6 z-10"
-    >
-      <h2 class="text-2xl font-semibold text-indigo-200 mb-4">Experience</h2>
-
-      <!-- Experience at Aryza -->
-      <div class="p-4 bg-gray-900 rounded-md hover:bg-gray-700 transition duration-200 mb-4">
-        <h3 class="text-xl text-white">
-          Software Engineer II - Cubic³
-        </h3>
-        <span class="text-sm text-gray-400">04/2023 – Present, Dublin, Ireland</span>
-        <ul class="list-disc text-gray-300 ml-6 mt-2">
-          <li>
-            Working with a team of 5 to develop a scalable API service for telecommunication and IOT devices used in Automotive industries.
-          </li>
-          <li>
-            Working to connect millions of devices to the cloud, ensuring real-time data processing and analytics.
-          </li>
-          <li>
-            Developing Userinterfaces using Angular for seemless connection and management of devices and plans.
-          </li>
-          <li>
-            Collaborating with cross-functional teams to ensure the smooth integration of new features and bug fixes.
-        </ul>
-      </div>
-
-      <!-- Experience at Aryza -->
-      <div
-        class="p-4 bg-gray-900 rounded-md hover:bg-gray-700 transition duration-200 mb-4"
-      >
-        <h3 class="text-xl text-white">
-          Software Engineer - Aryza Ireland Ltd
-        </h3>
-        <span class="text-sm text-gray-400"
-          >04/2023 – Present, Dublin, Ireland</span
-        >
-        <ul class="list-disc text-gray-300 ml-6 mt-2">
-          <li>
-            Developed scalable API service for the billing system, enhancing
-            client billing efficiency by 50%.
-          </li>
-          <li>
-            Redesigned front-end with Kendo UI Grid, enabling seamless Excel
-            export functionality.
-          </li>
-          <li>
-            Optimized database performance, improving report generation speed by
-            10%.
-          </li>
-          <li>
-            Implemented CI/CD pipelines via Azure DevOps, ensuring continuous
-            integration and updates.
-          </li>
-        </ul>
-      </div>
-
-      <!-- Experience at Learning Mate Solutions -->
-      <div
-        class="p-4 bg-gray-900 rounded-md hover:bg-gray-700 transition duration-200 mb-4"
-      >
-        <h3 class="text-xl text-white">
-          Software Engineer - Learning Mate Solutions Pvt. Ltd
-        </h3>
-        <span class="text-sm text-gray-400"
-          >05/2021 – 12/2021, Mumbai, India</span
-        >
-        <ul class="list-disc text-gray-300 ml-6 mt-2">
-          <li>
-            Developed authentication systems and data management for K12 student
-            applications.
-          </li>
-          <li>
-            Enhanced front-end usability by 30% using Angular, JavaScript, and
-            Electron.
-          </li>
-          <li>
-            Automated deployment via GitHub Actions and Azure, improving
-            application availability by 20%.
-          </li>
-        </ul>
-      </div>
-
-      <!-- Additional Experiences -->
-      <div
-        class="p-4 bg-gray-900 rounded-md hover:bg-gray-700 transition duration-200 mb-4"
-      >
-        <h3 class="text-xl text-white">
-          Jr. Software Engineer - Acideas Solutions Pvt. Ltd, CRMNEXT
-        </h3>
-        <span class="text-sm text-gray-400"
-          >06/2020 – 04/2021, Mumbai, India</span
-        >
-        <ul class="list-disc text-gray-300 ml-6 mt-2">
-          <li>
-            Developed .NET-based template engine for CRM requirements and
-            managed Oracle, MSSQL databases.
-          </li>
-          <li>Handled manual deployments on Windows platforms using IIS.</li>
-        </ul>
-      </div>
-
-      <div
-        class="p-4 bg-gray-900 rounded-md hover:bg-gray-700 transition duration-200"
-      >
-        <h3 class="text-xl text-white">
-          Software Developer - DIMA Engineering Pvt. Ltd
-        </h3>
-        <span class="text-sm text-gray-400"
-          >03/2019 – 06/2020, Mumbai, India</span
-        >
-        <ul class="list-disc text-gray-300 ml-6 mt-2">
-          <li>
-            Led form and state management development for HYDRA using React and
-            JavaScript.
-          </li>
-          <li>
-            Enhanced ELN maintenance using MVC architecture, Razor syntax, and
-            C#.
-          </li>
-          <li>Oversaw full-cycle delivery and deployment following UAT.</li>
-        </ul>
-      </div>
-    </section>
-
-    <!-- Education Section -->
-    <section
-      class="w-full max-w-4xl bg-gray-800 p-6 rounded-lg shadow-lg mb-6 z-10"
-    >
-      <h2 class="text-2xl font-semibold text-indigo-200 mb-4">Education</h2>
-      <div class="p-4 bg-gray-900 rounded-md mb-4">
-        <h3 class="text-lg text-white">
-          Master of Science in Artificial Intelligence
-        </h3>
-        <p class="text-gray-400">
-          Dublin Business School, 2023 - Grade: 79.96%
-        </p>
-      </div>
-      <div class="p-4 bg-gray-900 rounded-md mb-4">
-        <h3 class="text-lg text-white">
-          Post Graduate Diploma in Advanced Computing
-        </h3>
-        <p class="text-gray-400">CDAC-Mumbai, 2018</p>
-      </div>
-      <div class="p-4 bg-gray-900 rounded-md">
-        <h3 class="text-lg text-white">
-          Bachelor of Science in Electrical Engineering
-        </h3>
-        <p class="text-gray-400">Mumbai University, 2016</p>
-      </div>
-    </section>
-
-    <!-- Three.js Script for Background Animation -->
-    <script>
-      
-    </script>
-    <script>
-      
-    </script>
   </body>
 </html>

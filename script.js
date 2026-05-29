@@ -62,25 +62,33 @@ document.addEventListener("DOMContentLoaded", function () {
     }
     animate();
   
-    // Experience progress bar setup
-    const startYear = 2019 + 1; // Update as needed
+    // Experience years calculation from resume start date
+    const startDate = new Date(2019, 2, 1); // March 2019 (month index 2)
     const currentDate = new Date();
-    const currentYear = currentDate.getFullYear();
-    const currentMonth = currentDate.getMonth();
-  
-    const experienceYears = currentYear - startYear;
-    const monthsThisYear = currentMonth + 1; // Months are zero-indexed
-    const decimalExperience = experienceYears + monthsThisYear / 12;
-    const experienceProgress = Math.round((monthsThisYear / 12) * 100);
-  
-    const progressCircle = document.querySelector(".circle");
-    if (progressCircle) {
-      progressCircle.style.setProperty("--progress", experienceProgress);
-    }
-  
+    const diffMs = currentDate - startDate;
+    const totalYears = diffMs / (1000 * 60 * 60 * 24 * 365.25);
+    const experienceYears = Math.max(0, totalYears - 1); // subtract one year for master's study period
+    const nextYearValue = Math.ceil(experienceYears);
+    const progressPercent = Math.round((experienceYears - Math.floor(experienceYears)) * 100);
+
     const experienceYearsText = document.getElementById("experience-years");
     if (experienceYearsText) {
-      experienceYearsText.textContent = decimalExperience.toFixed(1) + " y";
+      experienceYearsText.textContent = experienceYears.toFixed(1);
+    }
+
+    const nextYearText = document.getElementById("next-year-text");
+    if (nextYearText) {
+      nextYearText.textContent = `${nextYearValue}.0 y`;
+    }
+
+    const experienceProgressText = document.getElementById("experience-progress-text");
+    if (experienceProgressText) {
+      experienceProgressText.textContent = `${progressPercent}%`;
+    }
+
+    const experienceProgressFill = document.getElementById("experience-progress-fill");
+    if (experienceProgressFill) {
+      experienceProgressFill.style.width = `${progressPercent}%`;
     }
   });
   
