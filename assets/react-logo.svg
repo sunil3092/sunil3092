@@ -1,0 +1,20 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 64 64" width="128" height="128" aria-hidden="false" role="img">
+  <defs>
+    <linearGradient id="g" x1="0%" x2="100%">
+      <stop offset="0%" stop-color="#61dafb" />
+      <stop offset="100%" stop-color="#0ea5a4" />
+    </linearGradient>
+  </defs>
+
+  <title>React-style logo</title>
+
+  <g fill="none" stroke="url(#g)" stroke-width="2" stroke-linecap="round">
+    <ellipse cx="32" cy="32" rx="18" ry="6" transform="rotate(0 32 32)" />
+    <ellipse cx="32" cy="32" rx="18" ry="6" transform="rotate(60 32 32)" />
+    <ellipse cx="32" cy="32" rx="18" ry="6" transform="rotate(120 32 32)" />
+  </g>
+
+  <circle cx="32" cy="32" r="5" fill="#61dafb" stroke="#083344" stroke-width="1" />
+
+</svg>
