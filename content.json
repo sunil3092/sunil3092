@@ -1,0 +1,187 @@
+{
+  "site": {
+    "title": "Sunil Gauda — Senior Software Engineer",
+    "description": "Sunil Gauda, senior software engineer in Dublin, Ireland. .NET, React, Angular, microservices and Azure."
+  },
+  "profile": {
+    "firstName": "Sunil",
+    "lastName": "Gauda",
+    "role": "Senior Software Engineer",
+    "location": "Dublin, Ireland",
+    "photo": "https://github.com/sunil3092.png",
+    "bio": "I build scalable, reliable and developer-friendly software that solves real-world problems. Experienced in building web applications, APIs, and cloud-native solutions."
+  },
+  "contact": {
+    "github": "https://github.com/sunil3092",
+    "linkedin": "https://www.linkedin.com/in/sunil3092",
+    "email": "sunilg3011992@gmail.com"
+  },
+  "experience": {
+    "startedWorking": "2019-03",
+    "yearsOffForStudy": 1
+  },
+  "skills": [
+    {
+      "name": "TypeScript",
+      "icon": "typescript.svg"
+    },
+    {
+      "name": "JavaScript",
+      "icon": "javascript.svg"
+    },
+    {
+      "name": "React",
+      "icon": "react-logo.svg"
+    },
+    {
+      "name": "Angular",
+      "icon": "angular.svg"
+    },
+    {
+      "name": ".NET",
+      "icon": "dotnet.svg"
+    },
+    {
+      "name": "C#",
+      "icon": "csharp.svg"
+    },
+    {
+      "name": "Node.js",
+      "icon": "nodejs.svg"
+    },
+    {
+      "name": "Express",
+      "icon": "express.svg"
+    },
+    {
+      "name": "SQL Server",
+      "icon": "sqlserver.svg"
+    },
+    {
+      "name": "Azure",
+      "icon": "azure.svg"
+    },
+    {
+      "name": "AWS",
+      "icon": "aws.svg"
+    },
+    {
+      "name": "Docker",
+      "icon": "docker.svg"
+    },
+    {
+      "name": "Git",
+      "icon": "git.svg"
+    }
+  ],
+  "timeline": [
+    {
+      "dates": "01/2025 – Present",
+      "title": "Software Engineer II",
+      "organisation": "Cubic³",
+      "description": "Building scalable API services for telecommunication and IoT devices in automotive ecosystems, powering real-time device management and cloud integration.",
+      "city": "dublin"
+    },
+    {
+      "dates": "04/2023 – 12/2024",
+      "title": "Software Engineer I",
+      "organisation": "Aryza Ireland Ltd",
+      "description": "Delivered billing and reporting solutions with Azure DevOps pipelines, Kendo UI enhancements, and backend performance improvements for financial workflows.",
+      "city": "dublin"
+    },
+    {
+      "dates": "01/2023",
+      "title": "Master of Science in Artificial Intelligence",
+      "description": "Dublin Business School — Graduated with a 79.96% grade, specializing in machine learning, natural language processing, and cloud-based AI solutions.",
+      "city": "dublin"
+    },
+    {
+      "dates": "05/2021 – 12/2021",
+      "title": "Software Engineer I",
+      "organisation": "LearningMate Solutions",
+      "description": "Worked on education technology workflows, improving learning platform capabilities and supporting cloud-native feature delivery.",
+      "city": "mumbai"
+    },
+    {
+      "dates": "06/2020 – 04/2021",
+      "title": "Jr. Software Engineer",
+      "organisation": "Acideas Solutions / CRMNEXT",
+      "description": "Implemented CRM automation, integration, and reporting features for customer management platforms.",
+      "city": "mumbai"
+    },
+    {
+      "dates": "03/2019 – 06/2020",
+      "title": "Software Engineer",
+      "organisation": "DIMA Engineering",
+      "description": "Supported enterprise software development and data integration projects, delivering process automation across business tools.",
+      "city": "mumbai"
+    },
+    {
+      "dates": "2018",
+      "title": "Post Graduate Diploma in Advanced Computing",
+      "description": "CDAC Mumbai — Completed a rigorous program focused on software engineering, networking, and advanced computing practices.",
+      "city": "mumbai"
+    },
+    {
+      "dates": "11/2016 – 11/2017",
+      "title": "Electrical Engineer",
+      "organisation": "IUS Equipment’s",
+      "description": "Designed and validated electrical systems while developing foundational technical and project delivery skills.",
+      "city": "mumbai"
+    },
+    {
+      "dates": "2016",
+      "title": "Bachelor of Science in Electrical Engineering",
+      "description": "Mumbai University — Graduated with a focus on electronics, power systems, and engineering design principles.",
+      "city": "mumbai"
+    }
+  ],
+  "cities": {
+    "dublin": {
+      "name": "Dublin",
+      "landmarks": [
+        {
+          "image": "samuel-beckett-bridge.svg",
+          "name": "Samuel Beckett Bridge"
+        },
+        {
+          "image": "hapenny-bridge.svg",
+          "name": "Ha’penny Bridge"
+        },
+        {
+          "image": "the-spire.svg",
+          "name": "The Spire"
+        }
+      ]
+    },
+    "mumbai": {
+      "name": "Mumbai",
+      "landmarks": [
+        {
+          "image": "gateway-of-india.svg",
+          "name": "Gateway of India"
+        },
+        {
+          "image": "bandra-worli-sea-link.svg",
+          "name": "Bandra–Worli Sea Link"
+        },
+        {
+          "image": "chhatrapati-shivaji-terminus.svg",
+          "name": "Chhatrapati Shivaji Terminus"
+        },
+        {
+          "image": "marine-drive.svg",
+          "name": "Marine Drive"
+        },
+        {
+          "image": "haji-ali-dargah.svg",
+          "name": "Haji Ali Dargah"
+        },
+        {
+          "image": "rajabai-clock-tower.svg",
+          "name": "Rajabai Clock Tower"
+        }
+      ]
+    }
+  }
+}

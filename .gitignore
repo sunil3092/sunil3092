@@ -1,0 +1,5 @@
+# Built by `node build.js`; GitHub Actions builds its own copy.
+_site/
+
+# Browser-test logs.
+.playwright-mcp/

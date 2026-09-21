@@ -1,3 +1,14 @@
+/* Content comes from content.json: build.js embeds what this script
+   needs in <script id="site-data">. */
+var SITE = (function () {
+  var el = document.getElementById("site-data");
+  try {
+    return el ? JSON.parse(el.textContent) : null;
+  } catch (e) {
+    return null;
+  }
+})();
+
 document.addEventListener("DOMContentLoaded", function () {
   /* ---------- Theme toggle ----------
      The theme itself is applied by the inline script in <head> before
@@ -63,11 +74,16 @@ document.addEventListener("DOMContentLoaded", function () {
 
   /* ---------- Experience counter ---------- */
 
-  var startDate = new Date(2019, 2, 1); // March 2019 (month index 2)
+  if (!SITE) return;
+  var started = SITE.experience.startedWorking.split("-");
+  var startDate = new Date(+started[0], +started[1] - 1, 1);
   var currentDate = new Date();
   var diffMs = currentDate - startDate;
   var totalYears = diffMs / (1000 * 60 * 60 * 24 * 365.25);
-  var experienceYears = Math.max(0, totalYears - 1); // less the master's study period
+  var experienceYears = Math.max(
+    0,
+    totalYears - SITE.experience.yearsOffForStudy,
+  );
   var nextYearValue = Math.ceil(experienceYears);
   var progressPercent = Math.round(
     (experienceYears - Math.floor(experienceYears)) * 100,
@@ -109,22 +125,13 @@ document.addEventListener("DOMContentLoaded", function () {
    ------------------------------------------------------------------ */
 
 (function () {
-  var LANDMARKS = {
-    dublin: [
-      ["samuel-beckett-bridge", "Samuel Beckett Bridge"],
-      ["hapenny-bridge", "Ha’penny Bridge"],
-      ["the-spire", "The Spire"],
-    ],
-    mumbai: [
-      ["gateway-of-india", "Gateway of India"],
-      ["bandra-worli-sea-link", "Bandra–Worli Sea Link"],
-      ["chhatrapati-shivaji-terminus", "Chhatrapati Shivaji Terminus"],
-      ["marine-drive", "Marine Drive"],
-      ["haji-ali-dargah", "Haji Ali Dargah"],
-      ["rajabai-clock-tower", "Rajabai Clock Tower"],
-    ],
-  };
-  var CITY_NAMES = { dublin: "Dublin", mumbai: "Mumbai" };
+  if (!SITE) return;
+  // cities.<key>.landmarks in content.json: [{ image, name }, ...]
+  var CITIES = SITE.cities;
+  var LANDMARKS = {};
+  Object.keys(CITIES).forEach(function (key) {
+    LANDMARKS[key] = CITIES[key].landmarks;
+  });
 
   var INTERVAL = 4000; // ms each landmark is shown
 
@@ -193,7 +200,7 @@ document.addEventListener("DOMContentLoaded", function () {
     // A copy of the first slide at the end lets the loop wrap seamlessly.
     slides.concat([slides[0]]).forEach(function (landmark) {
       var img = document.createElement("img");
-      img.src = "assets/landmarks/" + landmark[0] + ".svg";
+      img.src = "assets/landmarks/" + landmark.image;
       img.width = 64;
       img.height = 40;
       img.alt = "";
@@ -247,15 +254,15 @@ document.addEventListener("DOMContentLoaded", function () {
   // Position in the city's list of the landmark the markup shows, or -1.
   function markupIndex(figure, list) {
     var img = figure.querySelector("img");
-    var match = img && img.getAttribute("src").match(/([\w-]+)\.svg$/);
+    var match = img && img.getAttribute("src").match(/([^/]+)$/);
     for (var i = 0; match && i < list.length; i += 1) {
-      if (list[i][0] === match[1]) return i;
+      if (list[i].image === match[1]) return i;
     }
     return -1;
   }
 
   function label(card, index) {
-    return card.slides[index][1] + ", " + CITY_NAMES[card.city];
+    return card.slides[index].name + ", " + CITIES[card.city].name;
   }
 
   // Slide one step forward, or jump straight there when off screen.
@@ -284,7 +291,7 @@ document.addEventListener("DOMContentLoaded", function () {
    ------------------------------------------------------------------ */
 
 (function () {
-  if (typeof console === "undefined" || !console.log) return;
+  if (typeof console === "undefined" || !console.log || !SITE) return;
 
   var slab =
     "font-family: Archivo, Helvetica, Arial, sans-serif;" +
@@ -294,8 +301,14 @@ document.addEventListener("DOMContentLoaded", function () {
     "font-family: Archivo, Helvetica, Arial, sans-serif;" +
     "font-size: 13px; line-height: 1.8;";
 
-  console.log("%cSUNIL", slab + "background:#f1c40f; color:#212436;");
-  console.log("%cGAUDA", slab + "background:#bd098e; color:#ffffff;");
+  console.log(
+    "%c" + SITE.profile.firstName.toUpperCase(),
+    slab + "background:#f1c40f; color:#212436;",
+  );
+  console.log(
+    "%c" + SITE.profile.lastName.toUpperCase(),
+    slab + "background:#bd098e; color:#ffffff;",
+  );
   console.log(
     "%cReading the source? Good instinct.\nType %csunil.hire()%c if you like what you see.",
     body + "color:#4458a0; font-weight:600;",
@@ -318,10 +331,10 @@ document.addEventListener("DOMContentLoaded", function () {
         "%cLet's talk.",
         body + "color:#cd2d48; font-weight:700; font-size:15px;",
       );
-      console.log("Email     sunilg3011992@gmail.com");
-      console.log("LinkedIn  https://www.linkedin.com/in/sunil3092");
-      console.log("GitHub    https://github.com/sunil3092");
-      console.log("Location  Dublin, Ireland");
+      console.log("Email     " + SITE.contact.email);
+      console.log("LinkedIn  " + SITE.contact.linkedin);
+      console.log("GitHub    " + SITE.contact.github);
+      console.log("Location  " + SITE.profile.location);
     },
   };
 })();
