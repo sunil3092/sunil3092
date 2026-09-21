@@ -552,6 +552,13 @@
 
         <section class="panel panel-timeline" id="timeline">
           <h2 class="section-heading">Timeline</h2>
+          <!--
+            Each card's landmark is a carousel built by script.js from the
+            city in data-city. To add a job, copy a card and set
+            data-city="dublin" or "mumbai"; the <img> and <figcaption>
+            inside are only the no-JavaScript fallback. A new city needs
+            its landmarks drawn and listed in LANDMARKS in script.js.
+          -->
           <ol class="timeline">
             <li class="timeline-item">
               <span class="timeline-mark" aria-hidden="true"></span>
@@ -560,7 +567,7 @@
                 <h3>Software Engineer II — Cubic³</h3>
                 <p class="timeline-copy">Building scalable API services for telecommunication and IoT devices in automotive ecosystems, powering real-time device management and cloud integration.</p>
               </div>
-              <figure class="timeline-place">
+              <figure class="timeline-place" data-city="dublin">
                 <img src="assets/landmarks/samuel-beckett-bridge.svg" width="64" height="40" alt="" loading="lazy" decoding="async" />
                 <figcaption>Samuel Beckett Bridge, Dublin</figcaption>
               </figure>
@@ -573,7 +580,7 @@
                 <h3>Software Engineer I — Aryza Ireland Ltd</h3>
                 <p class="timeline-copy">Delivered billing and reporting solutions with Azure DevOps pipelines, Kendo UI enhancements, and backend performance improvements for financial workflows.</p>
               </div>
-              <figure class="timeline-place">
+              <figure class="timeline-place" data-city="dublin">
                 <img src="assets/landmarks/hapenny-bridge.svg" width="64" height="40" alt="" loading="lazy" decoding="async" />
                 <figcaption>Ha’penny Bridge, Dublin</figcaption>
               </figure>
@@ -586,7 +593,7 @@
                 <h3>Master of Science in Artificial Intelligence</h3>
                 <p class="timeline-copy">Dublin Business School — Graduated with a 79.96% grade, specializing in machine learning, natural language processing, and cloud-based AI solutions.</p>
               </div>
-              <figure class="timeline-place">
+              <figure class="timeline-place" data-city="dublin">
                 <img src="assets/landmarks/the-spire.svg" width="64" height="40" alt="" loading="lazy" decoding="async" />
                 <figcaption>The Spire, Dublin</figcaption>
               </figure>
@@ -599,7 +606,7 @@
                 <h3>Software Engineer I — LearningMate Solutions</h3>
                 <p class="timeline-copy">Worked on education technology workflows, improving learning platform capabilities and supporting cloud-native feature delivery.</p>
               </div>
-              <figure class="timeline-place">
+              <figure class="timeline-place" data-city="mumbai">
                 <img src="assets/landmarks/gateway-of-india.svg" width="64" height="40" alt="" loading="lazy" decoding="async" />
                 <figcaption>Gateway of India, Mumbai</figcaption>
               </figure>
@@ -612,7 +619,7 @@
                 <h3>Jr. Software Engineer — Acideas Solutions / CRMNEXT</h3>
                 <p class="timeline-copy">Implemented CRM automation, integration, and reporting features for customer management platforms.</p>
               </div>
-              <figure class="timeline-place">
+              <figure class="timeline-place" data-city="mumbai">
                 <img src="assets/landmarks/bandra-worli-sea-link.svg" width="64" height="40" alt="" loading="lazy" decoding="async" />
                 <figcaption>Bandra–Worli Sea Link, Mumbai</figcaption>
               </figure>
@@ -625,7 +632,7 @@
                 <h3>Software Engineer — DIMA Engineering</h3>
                 <p class="timeline-copy">Supported enterprise software development and data integration projects, delivering process automation across business tools.</p>
               </div>
-              <figure class="timeline-place">
+              <figure class="timeline-place" data-city="mumbai">
                 <img src="assets/landmarks/chhatrapati-shivaji-terminus.svg" width="64" height="40" alt="" loading="lazy" decoding="async" />
                 <figcaption>Chhatrapati Shivaji Terminus, Mumbai</figcaption>
               </figure>
@@ -638,7 +645,7 @@
                 <h3>Post Graduate Diploma in Advanced Computing</h3>
                 <p class="timeline-copy">CDAC Mumbai — Completed a rigorous program focused on software engineering, networking, and advanced computing practices.</p>
               </div>
-              <figure class="timeline-place">
+              <figure class="timeline-place" data-city="mumbai">
                 <img src="assets/landmarks/marine-drive.svg" width="64" height="40" alt="" loading="lazy" decoding="async" />
                 <figcaption>Marine Drive, Mumbai</figcaption>
               </figure>
@@ -651,7 +658,7 @@
                 <h3>Electrical Engineer — IUS Equipment’s</h3>
                 <p class="timeline-copy">Designed and validated electrical systems while developing foundational technical and project delivery skills.</p>
               </div>
-              <figure class="timeline-place">
+              <figure class="timeline-place" data-city="mumbai">
                 <img src="assets/landmarks/haji-ali-dargah.svg" width="64" height="40" alt="" loading="lazy" decoding="async" />
                 <figcaption>Haji Ali Dargah, Mumbai</figcaption>
               </figure>
@@ -664,7 +671,7 @@
                 <h3>Bachelor of Science in Electrical Engineering</h3>
                 <p class="timeline-copy">Mumbai University — Graduated with a focus on electronics, power systems, and engineering design principles.</p>
               </div>
-              <figure class="timeline-place">
+              <figure class="timeline-place" data-city="mumbai">
                 <img src="assets/landmarks/rajabai-clock-tower.svg" width="64" height="40" alt="" loading="lazy" decoding="async" />
                 <figcaption>Rajabai Clock Tower, Mumbai</figcaption>
               </figure>

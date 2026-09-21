@@ -99,6 +99,183 @@ document.addEventListener("DOMContentLoaded", function () {
 });
 
 /* ------------------------------------------------------------------
+   Timeline landmark carousels
+
+   Every timeline card names its city in data-city and cycles through all
+   the landmarks drawn for that city, so a new job in a known city needs
+   no new art. All cards in a city share one clock and advance together,
+   each offset from the others, so no two of them ever show the same
+   landmark. Hovering a card pauses its city's clock for the same reason.
+   ------------------------------------------------------------------ */
+
+(function () {
+  var LANDMARKS = {
+    dublin: [
+      ["samuel-beckett-bridge", "Samuel Beckett Bridge"],
+      ["hapenny-bridge", "Ha’penny Bridge"],
+      ["the-spire", "The Spire"],
+    ],
+    mumbai: [
+      ["gateway-of-india", "Gateway of India"],
+      ["bandra-worli-sea-link", "Bandra–Worli Sea Link"],
+      ["chhatrapati-shivaji-terminus", "Chhatrapati Shivaji Terminus"],
+      ["marine-drive", "Marine Drive"],
+      ["haji-ali-dargah", "Haji Ali Dargah"],
+      ["rajabai-clock-tower", "Rajabai Clock Tower"],
+    ],
+  };
+  var CITY_NAMES = { dublin: "Dublin", mumbai: "Mumbai" };
+
+  var INTERVAL = 4000; // ms each landmark is shown
+
+  var reduceMotion = window.matchMedia(
+    "(prefers-reduced-motion: reduce)",
+  ).matches;
+
+  var cities = {};
+  var figures = [].filter.call(
+    document.querySelectorAll(".timeline-place[data-city]"),
+    function (figure) {
+      // Unknown city: keep whatever the markup shows.
+      return LANDMARKS[figure.getAttribute("data-city")];
+    },
+  );
+
+  // First pass: note which landmarks the markup already assigns, so a
+  // card without one can't claim a landmark a later card is using.
+  figures.forEach(function (figure) {
+    var city = figure.getAttribute("data-city");
+    if (!cities[city]) cities[city] = { cards: [], used: {}, tick: 0, holds: 0 };
+    var index = markupIndex(figure, LANDMARKS[city]);
+    if (index >= 0) cities[city].used[index] = true;
+  });
+  figures.forEach(function (figure) {
+    var city = figure.getAttribute("data-city");
+    cities[city].cards.push(build(figure, city, cities[city]));
+  });
+
+  if (reduceMotion) return;
+
+  // One clock per city; cities are offset so the whole timeline never
+  // moves at the same instant.
+  Object.keys(cities).forEach(function (name, i) {
+    var state = cities[name];
+    if (LANDMARKS[name].length < 2) return;
+    window.setTimeout(function () {
+      window.setInterval(function () {
+        if (state.holds > 0 || document.hidden) return;
+        state.tick += 1;
+        state.cards.forEach(function (card) {
+          show(card, state.tick % card.len, card.onScreen);
+        });
+      }, INTERVAL);
+    }, (i * INTERVAL) / Object.keys(cities).length);
+  });
+
+  function build(figure, city, state) {
+    var list = LANDMARKS[city];
+
+    // Start on the landmark already in the markup; a card without one
+    // takes the first landmark no other card in this city is using.
+    var start = markupIndex(figure, list);
+    for (var i = 0; start < 0 && i < list.length; i += 1) {
+      if (!state.used[i]) start = i;
+    }
+    if (start < 0) start = state.cards.length % list.length;
+    state.used[start] = true;
+
+    var slides = list.slice(start).concat(list.slice(0, start));
+
+    var frame = document.createElement("div");
+    frame.className = "place-frame";
+    var track = document.createElement("div");
+    track.className = "place-track";
+    // A copy of the first slide at the end lets the loop wrap seamlessly.
+    slides.concat([slides[0]]).forEach(function (landmark) {
+      var img = document.createElement("img");
+      img.src = "assets/landmarks/" + landmark[0] + ".svg";
+      img.width = 64;
+      img.height = 40;
+      img.alt = "";
+      img.decoding = "async";
+      track.appendChild(img);
+    });
+    frame.appendChild(track);
+
+    var caption =
+      figure.querySelector("figcaption") ||
+      document.createElement("figcaption");
+    figure.textContent = "";
+    figure.appendChild(frame);
+    figure.appendChild(caption);
+
+    var card = {
+      track: track,
+      caption: caption,
+      slides: slides,
+      len: slides.length,
+      city: city,
+      visual: 0,
+      onScreen: true,
+    };
+    caption.textContent = label(card, 0);
+
+    // Hold the whole city still while any of its cards is being read.
+    var hoverTarget = figure.closest(".timeline-item") || figure;
+    hoverTarget.addEventListener("mouseenter", function () {
+      state.holds += 1;
+    });
+    hoverTarget.addEventListener("mouseleave", function () {
+      state.holds -= 1;
+    });
+
+    if ("IntersectionObserver" in window) {
+      new IntersectionObserver(function (entries) {
+        card.onScreen = entries[0].isIntersecting;
+      }).observe(figure);
+    }
+
+    // After sliding onto the copy of the first slide, jump back to the
+    // real one with no transition, so the loop never visibly rewinds.
+    track.addEventListener("transitionend", function () {
+      if (card.visual === card.len) show(card, 0, false);
+    });
+
+    return card;
+  }
+
+  // Position in the city's list of the landmark the markup shows, or -1.
+  function markupIndex(figure, list) {
+    var img = figure.querySelector("img");
+    var match = img && img.getAttribute("src").match(/([\w-]+)\.svg$/);
+    for (var i = 0; match && i < list.length; i += 1) {
+      if (list[i][0] === match[1]) return i;
+    }
+    return -1;
+  }
+
+  function label(card, index) {
+    return card.slides[index][1] + ", " + CITY_NAMES[card.city];
+  }
+
+  // Slide one step forward, or jump straight there when off screen.
+  function show(card, target, animate) {
+    if (animate) {
+      card.visual = target === 0 ? card.len : target;
+    } else {
+      card.track.style.transition = "none";
+      card.visual = target;
+    }
+    card.track.style.transform = "translateX(" + -card.visual * 100 + "%)";
+    if (!animate) {
+      void card.track.offsetWidth;
+      card.track.style.transition = "";
+    }
+    card.caption.textContent = label(card, target);
+  }
+})();
+
+/* ------------------------------------------------------------------
    Console greeting
 
    Logged at load rather than on a devtools-open check: every way of
