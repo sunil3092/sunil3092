@@ -1,191 +1,265 @@
-﻿<!DOCTYPE html>
-<html lang="en">
+<!DOCTYPE html>
+<html lang="en" data-theme="light">
   <head>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>Sunil G | Resume</title>
+    <title>Sunil Gauda — Senior Software Engineer</title>
+    <meta
+      name="description"
+      content="Sunil Gauda, senior software engineer in Dublin, Ireland. .NET, React, Angular, microservices and Azure."
+    />
+    <link rel="icon" href="assets/favicon.svg" type="image/svg+xml" />
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
     <link
-      href="https://cdn.jsdelivr.net/npm/tailwindcss@2.2.19/dist/tailwind.min.css"
+      href="https://fonts.googleapis.com/css2?family=Archivo:wdth,wght@62..125,400..900&display=swap"
       rel="stylesheet"
     />
     <link rel="stylesheet" href="style.css" />
-    <script src="https://cdnjs.cloudflare.com/ajax/libs/three.js/r128/three.min.js"></script>
+    <script>
+      // Resolve the theme before first paint so the page never flashes the wrong ground.
+      (function () {
+        var stored = null;
+        try {
+          stored = localStorage.getItem("theme");
+        } catch (e) {}
+        var theme =
+          stored ||
+          (window.matchMedia("(prefers-color-scheme: dark)").matches
+            ? "dark"
+            : "light");
+        document.documentElement.setAttribute("data-theme", theme);
+      })();
+    </script>
     <script src="./script.js" defer></script>
   </head>
-  <body class="resume-shell">
-    <canvas id="background-animation"></canvas>
+  <body>
+    <a class="skip-link" href="#about">Skip to content</a>
 
-    <div class="page-shell">
-      <nav class="top-nav">
-        <a href="#about">/about</a>
-        <a href="#skills">/skills</a>
-        <a href="#timeline">/timeline</a>
-        <a href="#contact">/contact</a>
+    <div class="motif-layer" aria-hidden="true">
+      <svg class="motif motif-squiggle-a" viewBox="0 0 120 40" fill="none">
+        <path d="M2 20c10-22 20 22 30 0s20-22 30 0 20 22 30 0" stroke="var(--magenta)" stroke-width="7" stroke-linecap="round"/>
+      </svg>
+      <svg class="motif motif-dots-a" viewBox="0 0 100 100">
+        <g fill="var(--blue)">
+          <circle cx="10" cy="10" r="6"/><circle cx="40" cy="10" r="6"/><circle cx="70" cy="10" r="6"/>
+          <circle cx="10" cy="40" r="6"/><circle cx="40" cy="40" r="6"/><circle cx="70" cy="40" r="6"/>
+          <circle cx="10" cy="70" r="6"/><circle cx="40" cy="70" r="6"/><circle cx="70" cy="70" r="6"/>
+        </g>
+      </svg>
+      <svg class="motif motif-zigzag-a" viewBox="0 0 120 40" fill="none">
+        <path d="M4 34 24 6l20 28L64 6l20 28L104 6" stroke="var(--yellow)" stroke-width="8" stroke-linecap="square"/>
+      </svg>
+      <svg class="motif motif-arc-a" viewBox="0 0 100 100" fill="none">
+        <path d="M4 96A92 92 0 0 1 96 4" stroke="var(--red)" stroke-width="14"/>
+      </svg>
+      <svg class="motif motif-tri-a" viewBox="0 0 100 90">
+        <path d="M50 2 98 86H2Z" fill="var(--yellow)"/>
+      </svg>
+      <svg class="motif motif-rings-a" viewBox="0 0 100 100" fill="none">
+        <circle cx="50" cy="50" r="46" stroke="var(--magenta)" stroke-width="9"/>
+        <circle cx="50" cy="50" r="22" stroke="var(--magenta)" stroke-width="9"/>
+      </svg>
+      <svg class="motif motif-squiggle-b" viewBox="0 0 120 40" fill="none">
+        <path d="M2 20c10-22 20 22 30 0s20-22 30 0 20 22 30 0" stroke="var(--blue)" stroke-width="7" stroke-linecap="round"/>
+      </svg>
+      <svg class="motif motif-bars-a" viewBox="0 0 100 100">
+        <g fill="var(--red)">
+          <rect x="4" y="8" width="92" height="12"/>
+          <rect x="4" y="34" width="92" height="12"/>
+          <rect x="4" y="60" width="92" height="12"/>
+        </g>
+      </svg>
+      <svg class="motif motif-zigzag-b" viewBox="0 0 120 40" fill="none">
+        <path d="M4 34 24 6l20 28L64 6l20 28L104 6" stroke="var(--magenta)" stroke-width="8" stroke-linecap="square"/>
+      </svg>
+      <svg class="motif motif-dots-b" viewBox="0 0 100 100">
+        <g fill="var(--yellow)">
+          <circle cx="10" cy="10" r="6"/><circle cx="40" cy="10" r="6"/><circle cx="70" cy="10" r="6"/>
+          <circle cx="10" cy="40" r="6"/><circle cx="40" cy="40" r="6"/><circle cx="70" cy="40" r="6"/>
+          <circle cx="10" cy="70" r="6"/><circle cx="40" cy="70" r="6"/><circle cx="70" cy="70" r="6"/>
+        </g>
+      </svg>
+      <svg class="motif motif-arc-b" viewBox="0 0 100 100" fill="none">
+        <path d="M4 96A92 92 0 0 1 96 4" stroke="var(--blue)" stroke-width="14"/>
+      </svg>
+      <svg class="motif motif-cross-a" viewBox="0 0 100 100">
+        <g fill="var(--red)">
+          <rect x="42" y="4" width="16" height="92"/>
+          <rect x="4" y="42" width="92" height="16"/>
+        </g>
+      </svg>
+    </div>
+
+    <div class="page">
+      <nav class="nav">
+        <ul class="nav-links">
+          <li><a href="#about">About</a></li>
+          <li><a href="#skills">Skills</a></li>
+          <li><a href="#timeline">Timeline</a></li>
+          <li><a href="#contact">Contact</a></li>
+        </ul>
+        <button
+          type="button"
+          class="theme-toggle"
+          id="theme-toggle"
+          aria-pressed="false"
+        >
+          <span class="theme-toggle-track" aria-hidden="true">
+            <span class="theme-toggle-knob"></span>
+          </span>
+          <span class="theme-toggle-label" id="theme-toggle-label">Dark</span>
+        </button>
       </nav>
 
-      <main class="hero-grid">
-        <section class="hero-panel glass-card" id="about">
-          <div class="hero-header">
-            <span class="terminal-tag">&gt; sunil.profile --open</span>
-            <h1>Sunil G</h1>
-            <p class="hero-title">Software Developer</p>
-          </div>
-
-          <p class="hero-copy">
-            I build scalable, reliable and developer-friendly software that solves
-            real-world problems. Experienced in building web applications, APIs,
-            and cloud-native solutions.
-          </p>
-
-          <div class="hero-details">
-            <div>
-              <span class="detail-label">Location</span>
-              <p>Dublin, Ireland</p>
-            </div>
-            
-          </div>
-        </section>
-        
-        
-
-        <section class="stats-panel glass-card" id="contact">
-          <div class="stats-top experience-top">
-            <div class="experience-hero">
-              <p class="subtle-label">Experience</p>
-              <h2><span id="experience-years">0.0</span><span class="percent">y</span></h2>
-              <p class="experience-subtitle">Since March 2019</p>
-            </div>
-            <div class="experience-status-card">
-              <span class="status-label">Next milestone</span>
-              <strong id="next-year-text">8.0 y</strong>
-            </div>
-          </div>
-
-          <div class="experience-progress-panel">
-            <div class="progress-header">
-              <span>Loading next year</span>
-              <span id="experience-progress-text">0%</span>
-            </div>
-            <div class="experience-progress-track">
-              <div class="experience-progress-fill" id="experience-progress-fill"></div>
-            </div>
-            <div class="contact-row" style="margin-top:1rem;">
-              <div class="contact-buttons">
-                <a class="btn" href="https://github.com/sunil3092" target="_blank"><img src="assets/github.svg" alt="GitHub" class="icon"/>GitHub</a>
-                <a class="btn" href="https://www.linkedin.com/in/sunil3092" target="_blank"><img src="assets/linkedin.svg" alt="LinkedIn" class="icon"/>LinkedIn</a>
-                <a class="btn" href="mailto:sunilg3011992@gmail.com"><img src="assets/mail.svg" alt="Email" class="icon"/>Email</a>
+      <main>
+        <div class="hero">
+          <section class="panel panel-hero" id="about">
+            <div class="hero-top">
+              <div class="portrait">
+                <img
+                  src="https://github.com/sunil3092.png"
+                  width="220"
+                  height="220"
+                  alt="Sunil Gauda"
+                />
+              </div>
+              <div class="hero-naming">
+                <h1 class="hero-name"><span>Sunil</span><span>Gauda</span></h1>
+                <p class="hero-role">Senior Software Engineer</p>
+                <p class="hero-place">Dublin, Ireland</p>
               </div>
             </div>
+
+            <p class="hero-copy">
+              I build scalable, reliable and developer-friendly software that
+              solves real-world problems. Experienced in building web
+              applications, APIs, and cloud-native solutions.
+            </p>
+          </section>
+
+          <section class="panel panel-stat">
+            <h2 class="stat-heading">Experience</h2>
+            <p class="stat-figure">
+              <span id="experience-years">0.0</span><span class="stat-unit">y</span>
+            </p>
+            <p class="stat-note">Since March 2019</p>
+
+            <div class="stat-progress">
+              <div class="stat-progress-head">
+                <span>Toward <strong id="next-year-text">8.0 y</strong></span>
+                <span id="experience-progress-text">0%</span>
+              </div>
+              <div class="stat-progress-track">
+                <div class="stat-progress-fill" id="experience-progress-fill"></div>
+              </div>
+            </div>
+          </section>
+        </div>
+
+        <section class="panel panel-skills" id="skills">
+          <h2 class="section-heading">Skills</h2>
+          <ul class="skill-list">
+            <li class="skill"><img src="assets/typescript.svg" alt="" class="skill-logo" />TypeScript</li>
+            <li class="skill"><img src="assets/javascript.svg" alt="" class="skill-logo" />JavaScript</li>
+            <li class="skill"><img src="assets/react-logo.svg" alt="" class="skill-logo" />React</li>
+            <li class="skill"><img src="assets/angular.svg" alt="" class="skill-logo" />Angular</li>
+            <li class="skill"><img src="assets/dotnet.svg" alt="" class="skill-logo" />.NET</li>
+            <li class="skill"><img src="assets/csharp.svg" alt="" class="skill-logo" />C#</li>
+            <li class="skill"><img src="assets/nodejs.svg" alt="" class="skill-logo" />Node.js</li>
+            <li class="skill"><img src="assets/express.svg" alt="" class="skill-logo" />Express</li>
+            <li class="skill"><img src="assets/sqlserver.svg" alt="" class="skill-logo" />SQL Server</li>
+            <li class="skill"><img src="assets/azure.svg" alt="" class="skill-logo" />Azure</li>
+            <li class="skill"><img src="assets/aws.svg" alt="" class="skill-logo" />AWS</li>
+            <li class="skill"><img src="assets/docker.svg" alt="" class="skill-logo" />Docker</li>
+            <li class="skill"><img src="assets/git.svg" alt="" class="skill-logo" />Git</li>
+          </ul>
+        </section>
+
+        <section class="panel panel-timeline" id="timeline">
+          <h2 class="section-heading">Timeline</h2>
+          <ol class="timeline">
+            <li class="timeline-item">
+              <span class="timeline-mark" aria-hidden="true"></span>
+              <p class="timeline-date">01/2025 – Present</p>
+              <h3>Software Engineer II — Cubic³</h3>
+              <p class="timeline-copy">Building scalable API services for telecommunication and IoT devices in automotive ecosystems, powering real-time device management and cloud integration.</p>
+            </li>
+
+            <li class="timeline-item">
+              <span class="timeline-mark" aria-hidden="true"></span>
+              <p class="timeline-date">04/2023 – 12/2024</p>
+              <h3>Software Engineer I — Aryza Ireland Ltd</h3>
+              <p class="timeline-copy">Delivered billing and reporting solutions with Azure DevOps pipelines, Kendo UI enhancements, and backend performance improvements for financial workflows.</p>
+            </li>
+
+            <li class="timeline-item">
+              <span class="timeline-mark" aria-hidden="true"></span>
+              <p class="timeline-date">01/2023</p>
+              <h3>Master of Science in Artificial Intelligence</h3>
+              <p class="timeline-copy">Dublin Business School — Graduated with a 79.96% grade, specializing in machine learning, natural language processing, and cloud-based AI solutions.</p>
+            </li>
+
+            <li class="timeline-item">
+              <span class="timeline-mark" aria-hidden="true"></span>
+              <p class="timeline-date">05/2021 – 12/2021</p>
+              <h3>Software Engineer I — LearningMate Solutions</h3>
+              <p class="timeline-copy">Worked on education technology workflows, improving learning platform capabilities and supporting cloud-native feature delivery.</p>
+            </li>
+
+            <li class="timeline-item">
+              <span class="timeline-mark" aria-hidden="true"></span>
+              <p class="timeline-date">06/2020 – 04/2021</p>
+              <h3>Jr. Software Engineer — Acideas Solutions / CRMNEXT</h3>
+              <p class="timeline-copy">Implemented CRM automation, integration, and reporting features for customer management platforms.</p>
+            </li>
+
+            <li class="timeline-item">
+              <span class="timeline-mark" aria-hidden="true"></span>
+              <p class="timeline-date">03/2019 – 06/2020</p>
+              <h3>Software Engineer — DIMA Engineering</h3>
+              <p class="timeline-copy">Supported enterprise software development and data integration projects, delivering process automation across business tools.</p>
+            </li>
+
+            <li class="timeline-item">
+              <span class="timeline-mark" aria-hidden="true"></span>
+              <p class="timeline-date">2018</p>
+              <h3>Post Graduate Diploma in Advanced Computing</h3>
+              <p class="timeline-copy">CDAC Mumbai — Completed a rigorous program focused on software engineering, networking, and advanced computing practices.</p>
+            </li>
+
+            <li class="timeline-item">
+              <span class="timeline-mark" aria-hidden="true"></span>
+              <p class="timeline-date">11/2016 – 11/2017</p>
+              <h3>Electrical Engineer — IUS Equipment’s</h3>
+              <p class="timeline-copy">Designed and validated electrical systems while developing foundational technical and project delivery skills.</p>
+            </li>
+
+            <li class="timeline-item">
+              <span class="timeline-mark" aria-hidden="true"></span>
+              <p class="timeline-date">2016</p>
+              <h3>Bachelor of Science in Electrical Engineering</h3>
+              <p class="timeline-copy">Mumbai University — Graduated with a focus on electronics, power systems, and engineering design principles.</p>
+            </li>
+          </ol>
+        </section>
+
+        <section class="panel panel-contact" id="contact">
+          <h2 class="section-heading">Contact</h2>
+          <p class="contact-copy">Open to conversations about engineering work, collaboration, or a role.</p>
+          <div class="contact-links">
+            <a class="contact-link contact-github" href="https://github.com/sunil3092" target="_blank" rel="noopener">
+              <span class="contact-icon" data-icon="github" aria-hidden="true"></span>GitHub
+            </a>
+            <a class="contact-link contact-linkedin" href="https://www.linkedin.com/in/sunil3092" target="_blank" rel="noopener">
+              <span class="contact-icon" data-icon="linkedin" aria-hidden="true"></span>LinkedIn
+            </a>
+            <a class="contact-link contact-mail" href="mailto:sunilg3011992@gmail.com">
+              <span class="contact-icon" data-icon="mail" aria-hidden="true"></span>Email
+            </a>
           </div>
         </section>
       </main>
-
-      <section class="skills-panel glass-card" id="skills">
-        <p class="terminal-tag">&gt; skills</p>
-        <div class="skill-list">
-          <span class="skill-item"><img src="assets/typescript.svg" alt="TypeScript" class="skill-logo" />TypeScript</span>
-          <span class="skill-item"><img src="assets/javascript.svg" alt="JavaScript" class="skill-logo" />JavaScript</span>
-          <span class="skill-item"><img src="assets/react-logo.svg" alt="Angular" class="skill-logo" />React</span>
-          <span class="skill-item"><img src="assets/angular.svg" alt="Angular" class="skill-logo" />Angular</span>
-          <span class="skill-item"><img src="assets/dotnet.svg" alt=".NET" class="skill-logo" />.NET</span>
-          <span class="skill-item"><img src="assets/csharp.svg" alt="C#" class="skill-logo" />C#</span>
-          <span class="skill-item"><img src="assets/nodejs.svg" alt="Node.js" class="skill-logo" />Node.js</span>
-          <span class="skill-item"><img src="assets/express.svg" alt="Express" class="skill-logo" />Express</span>
-          <span class="skill-item"><img src="assets/sqlserver.svg" alt="SQL Server" class="skill-logo" />SQL Server</span>
-          <span class="skill-item"><img src="assets/azure.svg" alt="Azure" class="skill-logo" />Azure</span>
-          <span class="skill-item"><img src="assets/aws.svg" alt="AWS" class="skill-logo" />AWS</span>
-          <span class="skill-item"><img src="assets/docker.svg" alt="Docker" class="skill-logo" />Docker</span>
-          <span class="skill-item"><img src="assets/git.svg" alt="Git" class="skill-logo" />Git</span>
-        </div>
-      </section>
-
-      <section class="timeline-panel glass-card" id="timeline">
-        <p class="terminal-tag">&gt; timeline</p>
-        <div class="timeline-list">
-          <div class="timeline-item latest">
-            <div class="timeline-marker"></div>
-            <div class="timeline-content">
-              <span class="timeline-date">04/2023 – Present</span>
-              <h3>Software Engineer II - Cubic³</h3>
-              <p>Building scalable API services for telecommunication and IoT devices in automotive ecosystems, powering real-time device management and cloud integration.</p>
-            </div>
-          </div>
-
-          <div class="timeline-item">
-            <div class="timeline-marker"></div>
-            <div class="timeline-content">
-              <span class="timeline-date">04/2023 – 12/2024</span>
-              <h3>Software Engineer - Aryza Ireland Ltd</h3>
-              <p>Delivered billing and reporting solutions with Azure DevOps pipelines, Kendo UI enhancements, and backend performance improvements for financial workflows.</p>
-            </div>
-          </div>
-
-          <div class="timeline-item">
-            <div class="timeline-marker"></div>
-            <div class="timeline-content">
-              <span class="timeline-date">2023</span>
-              <h3>Master of Science in Artificial Intelligence</h3>
-              <p>Dublin Business School — Graduated with a 79.96% grade, specializing in machine learning, natural language processing, and cloud-based AI solutions.</p>
-            </div>
-          </div>
-
-          <div class="timeline-item">
-            <div class="timeline-marker"></div>
-            <div class="timeline-content">
-              <span class="timeline-date">2021 – 2022</span>
-              <h3>Senior Developer - Learning Mate</h3>
-              <p>Worked on education technology workflows, improving learning platform capabilities and supporting cloud-native feature delivery.</p>
-            </div>
-          </div>
-
-          <div class="timeline-item">
-            <div class="timeline-marker"></div>
-            <div class="timeline-content">
-              <span class="timeline-date">2020 – 2021</span>
-              <h3>Software Developer - CRM NEXT</h3>
-              <p>Implemented CRM automation, integration, and reporting features for customer management platforms.</p>
-            </div>
-          </div>
-
-          <div class="timeline-item">
-            <div class="timeline-marker"></div>
-            <div class="timeline-content">
-              <span class="timeline-date">2019 – 2020</span>
-              <h3>Software Specialist - DIMA</h3>
-              <p>Supported enterprise software development and data integration projects, delivering process automation across business tools.</p>
-            </div>
-          </div>
-
-          <div class="timeline-item">
-            <div class="timeline-marker"></div>
-            <div class="timeline-content">
-              <span class="timeline-date">2018</span>
-              <h3>Post Graduate Diploma in Advanced Computing</h3>
-              <p>CDAC Mumbai — Completed a rigorous program focused on software engineering, networking, and advanced computing practices.</p>
-            </div>
-          </div>
-
-          <div class="timeline-item">
-            <div class="timeline-marker"></div>
-            <div class="timeline-content">
-              <span class="timeline-date">2016 – 2018</span>
-              <h3>Electrical Engineer - IUS</h3>
-              <p>Designed and validated electrical systems while developing foundational technical and project delivery skills.</p>
-            </div>
-          </div>
-
-          <div class="timeline-item">
-            <div class="timeline-marker"></div>
-            <div class="timeline-content">
-              <span class="timeline-date">2016</span>
-              <h3>Bachelor of Science in Electrical Engineering</h3>
-              <p>Mumbai University — Graduated with a focus on electronics, power systems, and engineering design principles.</p>
-            </div>
-          </div>
-        </div>
-      </section>
-
-      
     </div>
   </body>
 </html>
