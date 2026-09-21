@@ -24,15 +24,15 @@ Most repos on this account are older side projects. For the full picture, see th
 
 | | When | What |
 | --- | --- | --- |
-| <img src="assets/landmarks/samuel-beckett-bridge.svg" width="96" alt="Samuel Beckett Bridge, Dublin"> | 01/2025 – Present | **Software Engineer II**, Cubic³, Dublin |
-| <img src="assets/landmarks/hapenny-bridge.svg" width="96" alt="Ha’penny Bridge, Dublin"> | 04/2023 – 12/2024 | **Software Engineer I**, Aryza Ireland Ltd, Dublin |
-| <img src="assets/landmarks/the-spire.svg" width="96" alt="The Spire, Dublin"> | 01/2023 | **MSc Artificial Intelligence**, Dublin Business School |
-| <img src="assets/landmarks/gateway-of-india.svg" width="96" alt="Gateway of India, Mumbai"> | 05/2021 – 12/2021 | **Software Engineer I**, LearningMate Solutions, Mumbai |
-| <img src="assets/landmarks/bandra-worli-sea-link.svg" width="96" alt="Bandra–Worli Sea Link, Mumbai"> | 06/2020 – 04/2021 | **Jr. Software Engineer**, Acideas Solutions / CRMNEXT, Mumbai |
-| <img src="assets/landmarks/chhatrapati-shivaji-terminus.svg" width="96" alt="Chhatrapati Shivaji Terminus, Mumbai"> | 03/2019 – 06/2020 | **Software Engineer**, DIMA Engineering, Mumbai |
-| <img src="assets/landmarks/marine-drive.svg" width="96" alt="Marine Drive, Mumbai"> | 2018 | **PG Diploma in Advanced Computing**, CDAC Mumbai |
-| <img src="assets/landmarks/haji-ali-dargah.svg" width="96" alt="Haji Ali Dargah, Mumbai"> | 11/2016 – 11/2017 | **Electrical Engineer**, IUS Equipment’s, Mumbai |
-| <img src="assets/landmarks/rajabai-clock-tower.svg" width="96" alt="Rajabai Clock Tower, Mumbai"> | 2016 | **BSc Electrical Engineering**, Mumbai University |
+| <img src="assets/readme/flag-ireland.svg" width="30" align="middle" alt="Ireland"> <img src="assets/landmarks/samuel-beckett-bridge.svg" width="96" align="middle" alt="Samuel Beckett Bridge, Dublin"> | 01/2025 – Present | **Software Engineer II**, Cubic³, Dublin |
+| <img src="assets/readme/flag-ireland.svg" width="30" align="middle" alt="Ireland"> <img src="assets/landmarks/hapenny-bridge.svg" width="96" align="middle" alt="Ha’penny Bridge, Dublin"> | 04/2023 – 12/2024 | **Software Engineer I**, Aryza Ireland Ltd, Dublin |
+| <img src="assets/readme/flag-ireland.svg" width="30" align="middle" alt="Ireland"> <img src="assets/landmarks/the-spire.svg" width="96" align="middle" alt="The Spire, Dublin"> | 01/2023 | **MSc Artificial Intelligence**, Dublin Business School |
+| <img src="assets/readme/flag-india.svg" width="30" align="middle" alt="India"> <img src="assets/landmarks/gateway-of-india.svg" width="96" align="middle" alt="Gateway of India, Mumbai"> | 05/2021 – 12/2021 | **Software Engineer I**, LearningMate Solutions, Mumbai |
+| <img src="assets/readme/flag-india.svg" width="30" align="middle" alt="India"> <img src="assets/landmarks/bandra-worli-sea-link.svg" width="96" align="middle" alt="Bandra–Worli Sea Link, Mumbai"> | 06/2020 – 04/2021 | **Jr. Software Engineer**, Acideas Solutions / CRMNEXT, Mumbai |
+| <img src="assets/readme/flag-india.svg" width="30" align="middle" alt="India"> <img src="assets/landmarks/chhatrapati-shivaji-terminus.svg" width="96" align="middle" alt="Chhatrapati Shivaji Terminus, Mumbai"> | 03/2019 – 06/2020 | **Software Engineer**, DIMA Engineering, Mumbai |
+| <img src="assets/readme/flag-india.svg" width="30" align="middle" alt="India"> <img src="assets/landmarks/marine-drive.svg" width="96" align="middle" alt="Marine Drive, Mumbai"> | 2018 | **PG Diploma in Advanced Computing**, CDAC Mumbai |
+| <img src="assets/readme/flag-india.svg" width="30" align="middle" alt="India"> <img src="assets/landmarks/haji-ali-dargah.svg" width="96" align="middle" alt="Haji Ali Dargah, Mumbai"> | 11/2016 – 11/2017 | **Electrical Engineer**, IUS Equipment’s, Mumbai |
+| <img src="assets/readme/flag-india.svg" width="30" align="middle" alt="India"> <img src="assets/landmarks/rajabai-clock-tower.svg" width="96" align="middle" alt="Rajabai Clock Tower, Mumbai"> | 2016 | **BSc Electrical Engineering**, Mumbai University |
 
 ## Say hello
 
