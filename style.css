@@ -171,6 +171,9 @@ a {
 /* The sections inside <main> are their own grid, so they get spacing
    (they sat flush against each other before) and room for the arrows. */
 main {
+  /* Shared by the hero row and the arrow row under it, so they align. */
+  --flow-gap: 1rem;
+  --flow-arrow: 96px;
   display: grid;
   gap: 1.25rem;
 }
@@ -220,7 +223,7 @@ main {
 }
 
 .flow-across svg,
-.flow-bend svg {
+.flow-down svg {
   display: block;
   overflow: visible;
 }
@@ -231,42 +234,23 @@ main {
   aspect-ratio: 112 / 143;
 }
 
-/* Experience -> Skills: an S-curve from under Experience to under the
-   hero column. Its grid mirrors .hero exactly (each hero column split in
-   half), so column 2 to 5 runs centre to centre at every width. */
-.flow-bend {
-  --flow-gap: 1rem;
-  --flow-arrow: 96px;
+/* Experience -> Skills: straight down from the centre of Experience.
+   Same columns as .hero, so the arrow sits in the Experience column. */
+.flow-down {
   display: grid;
-  grid-template-columns:
-    1fr 1fr calc(var(--flow-arrow) + 2 * var(--flow-gap)) 0.5fr 0.5fr;
+  grid-template-columns: 2fr var(--flow-arrow) 1fr;
+  gap: var(--flow-gap);
 }
 
-.bend-arrow {
-  grid-column: 2 / 5;
-  width: 100%;
-  height: auto;
-  aspect-ratio: 660 / 215;
+.flow-down svg {
+  grid-column: 3;
+  justify-self: center;
+  width: 142px;
+  height: 112px;
 }
 
-.bend-outline {
-  fill: none;
-  stroke: var(--line);
-  stroke-width: 56;
-}
-
-.bend-fill {
-  fill: none;
-  stroke-width: 50;
-}
-
-.section-arrow--magenta .bend-fill {
-  stroke: var(--magenta);
-}
-
-/* Down-pointing stand-ins, used once the hero stacks. */
-.flow-across .arrow-down,
-.flow-bend .arrow-down {
+/* Down-pointing stand-in, used once the hero stacks. */
+.flow-across .arrow-down {
   display: none;
   width: 142px;
   height: 112px;
@@ -275,7 +259,7 @@ main {
 @media (max-width: 760px) {
   .section-arrow svg,
   .flow-across .arrow-down,
-  .flow-bend .arrow-down {
+  .flow-down svg {
     width: 100px;
     height: 79px;
   }
@@ -401,11 +385,8 @@ main {
 
 /* ---------- Hero ---------- */
 
-/* The middle column holds the arrow from the hero to Experience. The
-   bend arrow below uses the same two variables, so it stays aligned. */
+/* The middle column holds the arrow from the hero to Experience. */
 .hero {
-  --flow-gap: 1rem;
-  --flow-arrow: 96px;
   display: grid;
   /* 2:1 keeps the hero wide enough for photo and name side by side. */
   grid-template-columns: 2fr var(--flow-arrow) 1fr;
@@ -529,15 +510,6 @@ main {
   max-width: 290px;
   height: auto;
   margin: 1.75rem auto 0;
-}
-
-/* Held back until the assembly intro in script.js finishes. Scoped to
-   .js so the art still shows with scripts off, and to no-preference so
-   reduced-motion visitors never wait on an intro they won't get. */
-@media (prefers-reduced-motion: no-preference) {
-  .js .pixel-scene:not(.is-assembled) > :not(.px-assembly) {
-    visibility: hidden;
-  }
 }
 
 @keyframes px-type {
@@ -924,21 +896,26 @@ main {
     grid-template-columns: 1fr;
   }
 
-  /* Stacked, so both flow arrows simply point down. */
-  .flow-across,
-  .flow-bend {
+  /* Stacked, so the hero -> Experience arrow points down too. */
+  .flow-across {
     display: flex;
     justify-content: center;
   }
 
-  .flow-across .arrow-right,
-  .flow-bend .bend-arrow {
+  .flow-across .arrow-right {
     display: none;
   }
 
-  .flow-across .arrow-down,
-  .flow-bend .arrow-down {
+  .flow-across .arrow-down {
     display: block;
+  }
+
+  .flow-down {
+    grid-template-columns: 1fr;
+  }
+
+  .flow-down svg {
+    grid-column: auto;
   }
 }
 

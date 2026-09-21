@@ -19,10 +19,6 @@
     <script>
       // Resolve the theme before first paint so the page never flashes the wrong ground.
       (function () {
-        // Lets CSS hide the pixel scene until its intro runs, without
-        // hiding it from visitors who have JavaScript off.
-        document.documentElement.classList.add("js");
-
         var stored = null;
         try {
           stored = localStorage.getItem("theme");
@@ -521,17 +517,8 @@
           </section>
         </div>
 
-        <div class="flow-bend section-arrow--magenta" aria-hidden="true">
-          <svg class="bend-arrow" viewBox="0 0 660 215" focusable="false">
-            <g transform="translate(7 6)">
-              <path class="bend-outline" d="M660 0C660 115 0 55 0 146"/>
-              <polygon class="arrow-shadow" points="-72,143 72,143 0,208"/>
-            </g>
-            <path class="bend-outline" d="M660 0C660 115 0 55 0 146"/>
-            <polygon class="arrow-body" points="-72,143 72,143 0,208"/>
-            <path class="bend-fill" d="M660 3C660 115 0 55 0 146"/>
-          </svg>
-          <svg class="arrow-down" viewBox="0 0 142 112" focusable="false">
+        <div class="flow-down section-arrow--magenta" aria-hidden="true">
+          <svg viewBox="0 0 142 112" focusable="false">
             <polygon class="arrow-shadow" points="51,10 103,10 103,59 141,59 77,111 13,59 51,59"/>
             <polygon class="arrow-body" points="45,3 97,3 97,52 135,52 71,104 7,52 45,52"/>
           </svg>
