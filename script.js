@@ -97,3 +97,54 @@ document.addEventListener("DOMContentLoaded", function () {
     experienceProgressFill.style.width = progressPercent + "%";
   }
 });
+
+/* ------------------------------------------------------------------
+   Console greeting
+
+   Logged at load rather than on a devtools-open check: every way of
+   detecting devtools is a hack with false positives, and browsers keep
+   messages logged before devtools opened, so this is already waiting.
+   ------------------------------------------------------------------ */
+
+(function () {
+  if (typeof console === "undefined" || !console.log) return;
+
+  var slab =
+    "font-family: Archivo, Helvetica, Arial, sans-serif;" +
+    "font-weight: 900; font-size: 26px; letter-spacing: 1px;" +
+    "padding: 8px 18px; line-height: 1.6;";
+  var body =
+    "font-family: Archivo, Helvetica, Arial, sans-serif;" +
+    "font-size: 13px; line-height: 1.8;";
+
+  console.log("%cSUNIL", slab + "background:#f1c40f; color:#212436;");
+  console.log("%cGAUDA", slab + "background:#bd098e; color:#ffffff;");
+  console.log(
+    "%cReading the source? Good instinct.\nType %csunil.hire()%c if you like what you see.",
+    body + "color:#4458a0; font-weight:600;",
+    body + "color:#bd098e; font-weight:700;",
+    body + "color:#4458a0; font-weight:600;",
+  );
+
+  // Exists only to defeat DevTools' eager evaluation. While you type an
+  // expression, DevTools runs it to preview the result, and V8 counts
+  // console calls as side-effect free — so the details printed before
+  // Enter was pressed. Writing to this counter is a genuine side effect,
+  // which makes V8 abandon the preview and wait for the real command.
+  var timesAsked = 0;
+
+  window.sunil = {
+    hire: function () {
+      timesAsked += 1;
+
+      console.log(
+        "%cLet's talk.",
+        body + "color:#cd2d48; font-weight:700; font-size:15px;",
+      );
+      console.log("Email     sunilg3011992@gmail.com");
+      console.log("LinkedIn  https://www.linkedin.com/in/sunil3092");
+      console.log("GitHub    https://github.com/sunil3092");
+      console.log("Location  Dublin, Ireland");
+    },
+  };
+})();
