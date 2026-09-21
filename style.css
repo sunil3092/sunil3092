@@ -65,7 +65,6 @@ body {
 body,
 .panel,
 .skill,
-.contact-link,
 .theme-toggle {
   transition: background-color 0.25s ease, color 0.25s ease,
     border-color 0.25s ease, box-shadow 0.25s ease;
@@ -285,11 +284,6 @@ a {
 .panel-timeline {
   border-radius: 0;
   box-shadow: var(--offset) var(--offset) 0 var(--blue);
-}
-
-.panel-contact {
-  border-radius: 60px 0 60px 0;
-  box-shadow: var(--offset) var(--offset) 0 var(--magenta);
 }
 
 /* ---------- Hero ---------- */
@@ -744,47 +738,37 @@ a {
   color: var(--text-soft);
 }
 
-/* ---------- Contact ---------- */
+/* ---------- Nav contact links ----------
+   Icon-only, so each carries an aria-label and a title tooltip. Each
+   takes its own palette colour so none blends into the yellow toggle. */
 
-.contact-copy {
-  max-width: var(--measure);
-  margin-bottom: 1.5rem;
-}
-
-.contact-links {
+.nav-actions {
   display: flex;
   flex-wrap: wrap;
-  gap: 1rem;
-}
-
-.contact-link {
-  display: inline-flex;
   align-items: center;
+  justify-content: center;
   gap: 0.6rem;
-  text-decoration: none;
-  font-weight: 700;
-  padding: 0.7rem 1.4rem;
+}
+
+.nav-contact {
+  display: inline-grid;
+  place-items: center;
+  width: 2.75rem;
+  height: 2.75rem;
   border: var(--border-width) solid var(--ink);
-  border-radius: 999px;
-  color: var(--ink);
+  border-radius: 50%;
+  color: #fff;
+  text-decoration: none;
+  transition: transform 0.15s ease, box-shadow 0.15s ease;
 }
 
-.contact-github   { background: var(--yellow); box-shadow: 6px 6px 0 var(--ink); }
-.contact-linkedin { background: var(--blue);   color: #fff; box-shadow: 6px 6px 0 var(--ink); }
-.contact-mail     { background: var(--red);    color: #fff; box-shadow: 6px 6px 0 var(--ink); }
+.nav-github   { background: var(--magenta); }
+.nav-linkedin { background: var(--blue); }
+.nav-mail     { background: var(--red); }
 
-:root[data-theme="dark"] .contact-link {
-  border-color: var(--line);
-  box-shadow: 6px 6px 0 var(--line);
-}
-
-.contact-link:hover {
-  transform: translate(3px, 3px);
-  box-shadow: 3px 3px 0 var(--ink);
-}
-
-:root[data-theme="dark"] .contact-link:hover {
-  box-shadow: 3px 3px 0 var(--line);
+.nav-contact:hover {
+  transform: translateY(-2px);
+  box-shadow: 0 3px 0 var(--ink);
 }
 
 /* Masked icons take the link's own colour, so they work on any ground. */
@@ -857,8 +841,7 @@ a {
     gap: 1.25rem;
   }
 
-  .panel-skills,
-  .panel-contact {
+  .panel-skills {
     border-radius: 0 36px 0 36px;
   }
 
