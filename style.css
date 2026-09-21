@@ -65,9 +65,10 @@ body {
 body,
 .panel,
 .skill,
-.theme-toggle {
+.theme-toggle,
+.timeline-item {
   transition: background-color 0.25s ease, color 0.25s ease,
-    border-color 0.25s ease, box-shadow 0.25s ease;
+    border-color 0.25s ease, box-shadow 0.18s ease, transform 0.18s ease;
 }
 
 h1,
@@ -358,29 +359,30 @@ main {
   background: var(--panel);
   border: var(--border-width) solid var(--line);
   padding: 2rem;
+  box-shadow: var(--offset) var(--offset) 0 var(--pop-shadow);
 }
 
 .panel-hero {
+  --pop-shadow: var(--magenta);
   border-radius: 0;
-  box-shadow: var(--offset) var(--offset) 0 var(--magenta);
 }
 
 .panel-stat {
+  --pop-shadow: var(--red);
   border-radius: 28px;
-  box-shadow: var(--offset) var(--offset) 0 var(--red);
   display: flex;
   flex-direction: column;
   justify-content: center;
 }
 
 .panel-skills {
+  --pop-shadow: var(--yellow);
   border-radius: 0 60px 0 60px;
-  box-shadow: var(--offset) var(--offset) 0 var(--yellow);
 }
 
 .panel-timeline {
+  --pop-shadow: var(--blue);
   border-radius: 0;
-  box-shadow: var(--offset) var(--offset) 0 var(--blue);
 }
 
 /* ---------- Hero ---------- */
@@ -821,6 +823,13 @@ main {
 .timeline-item:nth-child(4n + 3) .timeline-place img { box-shadow: 5px 5px 0 var(--blue); }
 .timeline-item:nth-child(4n)     .timeline-place img { box-shadow: 5px 5px 0 var(--red); }
 
+/* Cards sit flat; the colour is only seen when one pops on hover. */
+.timeline-item { box-shadow: 0 0 0 var(--pop-shadow); }
+.timeline-item:nth-child(4n + 1) { --pop-shadow: var(--magenta); }
+.timeline-item:nth-child(4n + 2) { --pop-shadow: var(--yellow); }
+.timeline-item:nth-child(4n + 3) { --pop-shadow: var(--blue); }
+.timeline-item:nth-child(4n)     { --pop-shadow: var(--red); }
+
 .timeline-place figcaption {
   margin-top: 0.7rem;
   font-size: 0.8rem;
@@ -887,6 +896,37 @@ main {
 .contact-icon[data-icon="mail"] {
   -webkit-mask-image: url("assets/mail.svg");
   mask-image: url("assets/mail.svg");
+}
+
+/* ---------- Hover pop ----------
+   Sections and arrows lift up-left while their hard shadow grows by the
+   same amount, like a sticker peeling off the page. The Timeline panel
+   itself stays put: it is taller than the screen, so its cards pop
+   instead. Mouse and trackpad only, so taps never leave one stuck up. */
+
+.arrow-body {
+  transition: transform 0.18s ease;
+}
+
+@media (hover: hover) {
+  .panel-hero:hover,
+  .panel-stat:hover,
+  .panel-skills:hover {
+    transform: translate(-4px, -4px);
+    box-shadow: calc(var(--offset) + 4px) calc(var(--offset) + 4px) 0
+      var(--pop-shadow);
+  }
+
+  .timeline-item:hover {
+    transform: translate(-3px, -3px);
+    box-shadow: 6px 6px 0 var(--pop-shadow);
+  }
+
+  .section-arrow svg:hover .arrow-body,
+  .flow-across svg:hover .arrow-body,
+  .flow-down svg:hover .arrow-body {
+    transform: translate(-4px, -4px);
+  }
 }
 
 /* ---------- Responsive ---------- */
