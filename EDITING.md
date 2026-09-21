@@ -33,7 +33,12 @@ mistake never reaches the live site.
 through that city's landmarks automatically.
 
 **Add a skill** — put its icon in `assets/`, then add
-`{ "name": "Kotlin", "icon": "kotlin.svg" }` to `skills`.
+`{ "name": "Kotlin", "icon": "kotlin.svg" }` to the `items` of one of
+the groups in `skills`.
+
+**Add a skill group** — add `{ "group": "Mobile", "items": [...] }` to
+`skills`. Groups take the palette in turn (blue, magenta, yellow, red),
+and every skill in a group carries that group's colour.
 
 **Change your photo, role, bio or links** — edit `profile` or `contact`.
 

@@ -22,56 +22,83 @@
   },
   "skills": [
     {
-      "name": "TypeScript",
-      "icon": "typescript.svg"
+      "group": "Web",
+      "items": [
+        {
+          "name": "TypeScript",
+          "icon": "typescript.svg"
+        },
+        {
+          "name": "JavaScript",
+          "icon": "javascript.svg"
+        },
+        {
+          "name": "React",
+          "icon": "react-logo.svg"
+        },
+        {
+          "name": "Angular",
+          "icon": "angular.svg"
+        },
+        {
+          "name": ".NET",
+          "icon": "dotnet.svg"
+        },
+        {
+          "name": "C#",
+          "icon": "csharp.svg"
+        },
+        {
+          "name": "Node.js",
+          "icon": "nodejs.svg"
+        },
+        {
+          "name": "Express",
+          "icon": "express.svg"
+        },
+        {
+          "name": "SQL Server",
+          "icon": "sqlserver.svg"
+        }
+      ]
     },
     {
-      "name": "JavaScript",
-      "icon": "javascript.svg"
+      "group": "AI",
+      "items": [
+        {
+          "name": "Python",
+          "icon": "python.svg"
+        },
+        {
+          "name": "TensorFlow",
+          "icon": "tensorflow.svg"
+        },
+        {
+          "name": "LangChain",
+          "icon": "langchain.svg"
+        }
+      ]
     },
     {
-      "name": "React",
-      "icon": "react-logo.svg"
-    },
-    {
-      "name": "Angular",
-      "icon": "angular.svg"
-    },
-    {
-      "name": ".NET",
-      "icon": "dotnet.svg"
-    },
-    {
-      "name": "C#",
-      "icon": "csharp.svg"
-    },
-    {
-      "name": "Node.js",
-      "icon": "nodejs.svg"
-    },
-    {
-      "name": "Express",
-      "icon": "express.svg"
-    },
-    {
-      "name": "SQL Server",
-      "icon": "sqlserver.svg"
-    },
-    {
-      "name": "Azure",
-      "icon": "azure.svg"
-    },
-    {
-      "name": "AWS",
-      "icon": "aws.svg"
-    },
-    {
-      "name": "Docker",
-      "icon": "docker.svg"
-    },
-    {
-      "name": "Git",
-      "icon": "git.svg"
+      "group": "Cloud & DevOps",
+      "items": [
+        {
+          "name": "Azure",
+          "icon": "azure.svg"
+        },
+        {
+          "name": "AWS",
+          "icon": "aws.svg"
+        },
+        {
+          "name": "Docker",
+          "icon": "docker.svg"
+        },
+        {
+          "name": "Git",
+          "icon": "git.svg"
+        }
+      ]
     }
   ],
   "timeline": [

@@ -96,13 +96,17 @@ function check(content) {
     problems.push("experience.yearsOffForStudy must be a number, 0 or more");
   }
 
-  list(content.skills, "skills").forEach((skill, i) => {
+  list(content.skills, "skills").forEach((group, i) => {
     const where = "skills[" + i + "]";
-    text(obj(skill).name, where + ".name");
-    text(obj(skill).icon, where + ".icon");
-    if (skill && skill.icon && !fs.existsSync(path.join(ROOT, "assets", skill.icon))) {
-      problems.push(where + ' icon "' + skill.icon + '" is not in assets/');
-    }
+    text(obj(group).group, where + ".group");
+    list(obj(group).items, where + ".items").forEach((skill, j) => {
+      const at = where + ".items[" + j + "]";
+      text(obj(skill).name, at + ".name");
+      text(obj(skill).icon, at + ".icon");
+      if (skill && skill.icon && !fs.existsSync(path.join(ROOT, "assets", skill.icon))) {
+        problems.push(at + ' icon "' + skill.icon + '" is not in assets/');
+      }
+    });
   });
 
   const cities = obj(content.cities);
@@ -141,13 +145,25 @@ function check(content) {
 
 // ------------------------------------------------------------ render
 
-function renderSkills(skills) {
-  return skills
-    .map((s) =>
-      '            <li class="skill"><img src="assets/' + escapeHtml(s.icon) +
-      '" alt="" class="skill-logo" />' + escapeHtml(s.name) + "</li>",
+function renderSkills(groups) {
+  return groups
+    .map((g) =>
+      [
+        '            <section class="skill-group">',
+        '              <h3 class="skill-group-title">' + escapeHtml(g.group) + "</h3>",
+        '              <ul class="skill-list">',
+        g.items
+          .map(
+            (s) =>
+              '                <li class="skill"><img src="assets/' + escapeHtml(s.icon) +
+              '" alt="" class="skill-logo" />' + escapeHtml(s.name) + "</li>",
+          )
+          .join("\n"),
+        "              </ul>",
+        "            </section>",
+      ].join("\n"),
     )
-    .join("\n");
+    .join("\n\n");
 }
 
 // Each card's starting landmark is the next one in its city's list, so
@@ -251,8 +267,11 @@ STATIC_FILES.forEach((f) =>
   fs.cpSync(path.join(ROOT, f), path.join(OUT, f), { recursive: true }),
 );
 
+const skillCount = content.skills.reduce((n, g) => n + g.items.length, 0);
+
 console.log(
-  "Built _site/ — " + content.skills.length + " skills, " +
+  "Built _site/ — " + skillCount + " skills in " +
+  content.skills.length + " groups, " +
   content.timeline.length + " timeline entries, " +
   Object.keys(content.cities).length + " cities.",
 );

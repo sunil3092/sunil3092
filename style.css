@@ -65,6 +65,7 @@ body {
 body,
 .panel,
 .skill,
+.skill-group,
 .theme-toggle,
 .timeline-item {
   transition: background-color 0.25s ease, color 0.25s ease,
@@ -690,6 +691,42 @@ main {
 
 /* ---------- Skills ---------- */
 
+/* Each stack is one card carrying one accent, so a skill's colour tells
+   you which group it belongs to rather than just cycling the palette. */
+.skill-groups {
+  display: grid;
+  gap: 2rem;
+}
+
+.skill-group {
+  --accent: var(--blue);
+  background: var(--panel);
+  border: var(--border-width) solid var(--line);
+  border-radius: 16px;
+  padding: 1.25rem 1.4rem 1.5rem;
+  box-shadow: var(--offset) var(--offset) 0 var(--accent);
+}
+
+.skill-group:nth-child(4n + 1) { --accent: var(--blue); }
+.skill-group:nth-child(4n + 2) { --accent: var(--magenta); }
+.skill-group:nth-child(4n + 3) { --accent: var(--yellow); }
+.skill-group:nth-child(4n)     { --accent: var(--red); }
+
+.skill-group-title {
+  display: inline-block;
+  margin: 0 0 1.1rem;
+  padding: 0.3rem 1.1rem;
+  background: var(--accent);
+  color: #fff;
+  border: var(--border-width) solid var(--line);
+  border-radius: 999px;
+  font-size: 1.05rem;
+  letter-spacing: 0.02em;
+}
+
+/* Yellow is too light to carry white text. */
+.skill-group:nth-child(4n + 3) .skill-group-title { color: var(--ink); }
+
 .skill-list {
   display: flex;
   flex-wrap: wrap;
@@ -709,12 +746,8 @@ main {
   padding: 0.5rem 1.1rem 0.5rem 0.5rem;
   font-weight: 600;
   font-size: 0.95rem;
+  box-shadow: 5px 5px 0 var(--accent);
 }
-
-.skill:nth-child(4n + 1) { box-shadow: 5px 5px 0 var(--blue); }
-.skill:nth-child(4n + 2) { box-shadow: 5px 5px 0 var(--magenta); }
-.skill:nth-child(4n + 3) { box-shadow: 5px 5px 0 var(--yellow); }
-.skill:nth-child(4n)     { box-shadow: 5px 5px 0 var(--red); }
 
 /* Brand logos keep a fixed light tile in both themes so the white-heavy
    and black-heavy marks stay visible either way. */
