@@ -710,6 +710,40 @@ a {
   max-width: var(--measure);
 }
 
+/* Each card gets a pixel postcard of where it happened. The postcards
+   carry their own sky, so they need no theme handling. */
+.timeline-item {
+  display: grid;
+  grid-template-columns: minmax(0, 1fr) auto;
+  column-gap: 2rem;
+  align-items: center;
+}
+
+.timeline-place {
+  margin: 0;
+  width: 224px;
+}
+
+.timeline-place img {
+  display: block;
+  width: 100%;
+  height: auto;
+  border: var(--border-width) solid var(--line);
+}
+
+/* Frame shadow matches the card's timeline marker colour. */
+.timeline-item:nth-child(4n + 1) .timeline-place img { box-shadow: 5px 5px 0 var(--magenta); }
+.timeline-item:nth-child(4n + 2) .timeline-place img { box-shadow: 5px 5px 0 var(--yellow); }
+.timeline-item:nth-child(4n + 3) .timeline-place img { box-shadow: 5px 5px 0 var(--blue); }
+.timeline-item:nth-child(4n)     .timeline-place img { box-shadow: 5px 5px 0 var(--red); }
+
+.timeline-place figcaption {
+  margin-top: 0.7rem;
+  font-size: 0.8rem;
+  line-height: 1.4;
+  color: var(--text-soft);
+}
+
 /* ---------- Contact ---------- */
 
 .contact-copy {
@@ -834,6 +868,15 @@ a {
 
   .timeline-mark {
     left: -2.25rem;
+  }
+
+  .timeline-item {
+    grid-template-columns: minmax(0, 1fr);
+  }
+
+  .timeline-place {
+    width: min(100%, 220px);
+    margin-top: 1.1rem;
   }
 }
 
