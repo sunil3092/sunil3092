@@ -8,7 +8,7 @@
 
 I build scalable, reliable and developer-friendly software that solves real-world problems, with 6+ years across web applications, APIs and cloud-native solutions.
 
-Right now I'm a Software Engineer II at **Cubic³** in Dublin, building API services for telecommunication and IoT devices in automotive ecosystems.
+Right now I'm a Software Engineer II at **Cubic³** in Dublin, engineering connected-mobility platforms that link mobile network operators such as Vodafone with automotive OEMs such as Volkswagen Group, supporting 3.5M+ connected devices.
 
 Most repos on this account are older side projects. For the full picture, see the portfolio.
 

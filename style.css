@@ -962,9 +962,10 @@ main {
 
 /* ---------- Hover pop ----------
    Sections and arrows lift up-left while their hard shadow grows by the
-   same amount, like a sticker peeling off the page. The Timeline panel
-   itself stays put: it is taller than the screen, so its cards pop
-   instead. Mouse and trackpad only, so taps never leave one stuck up. */
+   same amount, like a sticker peeling off the page. The Skills and
+   Timeline panels stay put and the cards inside them pop instead: one
+   skill group or one job at a time, rather than the whole section.
+   Mouse and trackpad only, so taps never leave one stuck up. */
 
 .arrow-body {
   transition: transform 0.18s ease;
@@ -972,11 +973,16 @@ main {
 
 @media (hover: hover) {
   .panel-hero:hover,
-  .panel-stat:hover,
-  .panel-skills:hover {
+  .panel-stat:hover {
     transform: translate(-4px, -4px);
     box-shadow: calc(var(--offset) + 4px) calc(var(--offset) + 4px) 0
       var(--pop-shadow);
+  }
+
+  .skill-group:hover {
+    transform: translate(-4px, -4px);
+    box-shadow: calc(var(--offset) + 4px) calc(var(--offset) + 4px) 0
+      var(--accent);
   }
 
   .timeline-item:hover {
