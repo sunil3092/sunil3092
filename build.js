@@ -260,8 +260,12 @@ const content = loadContent();
 check(content);
 const html = fill(fs.readFileSync(TEMPLATE, "utf8"), content);
 
-fs.rmSync(OUT, { recursive: true, force: true });
+// Empty _site/ rather than delete it: on Windows a folder can't be removed
+// while a local preview server is running inside it.
 fs.mkdirSync(OUT, { recursive: true });
+fs.readdirSync(OUT).forEach((entry) =>
+  fs.rmSync(path.join(OUT, entry), { recursive: true, force: true }),
+);
 fs.writeFileSync(path.join(OUT, "index.html"), html);
 STATIC_FILES.forEach((f) =>
   fs.cpSync(path.join(ROOT, f), path.join(OUT, f), { recursive: true }),

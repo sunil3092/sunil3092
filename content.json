@@ -76,6 +76,14 @@
         {
           "name": "LangChain",
           "icon": "langchain.svg"
+        },
+        {
+          "name": "GitHub Copilot",
+          "icon": "githubcopilot.svg"
+        },
+        {
+          "name": "Claude",
+          "icon": "claude.svg"
         }
       ]
     },
