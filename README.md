@@ -1,8 +1,6 @@
 <a href="https://sunil3092.github.io/sunil3092/">
-  <img src="assets/readme/banner.svg" alt="Sunil Gauda, Senior Software Engineer, Dublin, Ireland" width="100%">
+  <img src="assets/readme/banner.svg" alt="Sunil Gauda, Software Engineer, Dublin, Ireland, with pixel art of him typing code at a laptop" width="100%">
 </a>
-
-<img src="assets/readme/pixel-dev.svg" alt="Pixel art of Sunil typing code at a laptop" align="right" width="300">
 
 ### Hi, I'm Sunil.
 
@@ -13,8 +11,6 @@ Right now I'm a Software Engineer II at **Cubic³** in Dublin, engineering conne
 Most repos on this account are older side projects. For the full picture, see the portfolio.
 
 <a href="https://sunil3092.github.io/sunil3092/"><img src="https://img.shields.io/badge/Visit_the_portfolio-f1c40f?style=for-the-badge&labelColor=212436" alt="Visit the portfolio"></a>
-
-<br clear="right">
 
 ## Skills
 
